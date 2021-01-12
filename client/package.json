@@ -1,6 +1,5 @@
 {
   "name": "code.it",
-  "description": "repl.it clone",
   "version": "1.0.0",
   "scripts": {
     "start": "craco start",
