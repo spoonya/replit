@@ -1,0 +1,8 @@
+cd server
+npm i
+npm run build
+cd ../client
+npm i npm run build
+pm2 stop replit
+pm2 delete replit
+pm2 start --name replit ../server/dist/server.js
