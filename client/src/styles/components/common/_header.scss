@@ -1,0 +1,23 @@
+.header {
+  padding: 1.5rem 0;
+
+  border-bottom: 2px solid $color-primary-gamma;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    color: $color-primary-alpha;
+
+    span {
+      color: $color-primary-psi;
+    }
+  }
+}

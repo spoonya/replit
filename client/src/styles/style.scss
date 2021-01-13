@@ -3,5 +3,7 @@
 @import 'mixins/media';
 
 @import 'common/global';
-@import 'common/header';
-@import 'common/footer';
+
+@import 'components/common/header';
+@import 'components/common/footer';
+@import 'components/home/intro';
