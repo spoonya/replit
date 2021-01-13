@@ -5,8 +5,16 @@ $media-md: 767px;
 $media-sm: 575px;
 $media-xs: 480px;
 // Colors
-$color-primary-light: #fff;
-$color-primary-dark: #202020;
-$color-secondary-light: #19fd4a;
+$color-white: #fff;
+$color-shark-alpha: #282c34;
+$color-shark-beta: #21252b;
+$color-blue: #485fe0;
+$color-black: #000;
+$color-primary-alpha: $color-white;
+$color-primary-beta: $color-shark-alpha;
+$color-primary-gamma: $color-shark-beta;
+$color-primary-psi: $color-blue;
+$color-primary-omega: $color-black;
 // Fonts
-$font-primary: 'Montserrat', sans-serif;
+$font-primary: 'JetBrains Mono', monospace;
+$font-secondary: 'Roboto', sans-serif;
