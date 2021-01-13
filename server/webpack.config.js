@@ -1,16 +1,18 @@
 const path = require('path');
 
-const tsconfig = path.resolve(__dirname, 'tsconfig.backend.json');
-const entry = path.resolve(__dirname, 'backend', 'index.ts');
+const tsconfig = path.resolve(__dirname, 'tsconfig.json');
+const entry = path.resolve(__dirname, 'index.ts');
+const dist = path.resolve(__dirname, 'dist');
 
 module.exports = {
   entry,
   output: {
-    path: __dirname,
+    path: dist,
     filename: 'server.js'
   },
   mode: 'development',
   target: 'node',
+  devtool: 'source-map',
   module: {
     rules: [
       {
