@@ -8,5 +8,4 @@ const app = express();
 app.use('/', express.static(staticPath));
 console.log(staticPath);
 
-app.listen(8080);
-console.log(1);
+app.listen(8081);
