@@ -1,0 +1,10 @@
+.console {
+  display: flex;
+  align-items: center;
+  flex: 1 0;
+  justify-content: center;
+
+  min-width: 20%;
+
+  background-color: darken($color-primary-beta, 6);
+}

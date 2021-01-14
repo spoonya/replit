@@ -1,9 +1,16 @@
 @import 'utils/vars';
 
 @import 'mixins/media';
+@import 'mixins/button';
 
 @import 'common/global';
 
 @import 'components/common/header';
 @import 'components/common/footer';
 @import 'components/home/intro';
+@import 'components/project/sidebar';
+@import 'components/project/content';
+@import 'components/project/explorer';
+@import 'components/project/editor';
+@import 'components/project/console';
+@import 'components/project/options';

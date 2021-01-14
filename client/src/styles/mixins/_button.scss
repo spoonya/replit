@@ -1,0 +1,9 @@
+@mixin btn-hover {
+  transition: color .1s linear;
+
+  color: $color-primary-alpha;
+
+  &:hover {
+    color: $color-primary-psi;
+  }
+}
