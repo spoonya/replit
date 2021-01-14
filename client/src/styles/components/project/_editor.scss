@@ -1,0 +1,12 @@
+.editor {
+  display: flex;
+  align-items: center;
+  flex: 2 0;
+  justify-content: center;
+
+  width: 100%;
+  min-width: 20%;
+
+  border-right: 1px solid $color-line;
+  background-color: $color-primary-beta;
+}

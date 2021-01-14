@@ -1,0 +1,39 @@
+.options {
+  font-family: $font-secondary;
+  font-size: 1.5rem;
+
+  position: absolute;
+  bottom: 0;
+
+  width: 100%;
+  padding: 5px 0;
+
+  background-color: $color-primary-psi;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__left,
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    color: $color-primary-alpha;
+
+    &:not(:last-child) {
+      margin-right: 3rem;
+    }
+  }
+
+  &__icon {
+    margin-right: 8px;
+  }
+}

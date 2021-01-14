@@ -1,0 +1,20 @@
+.sidebar {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  min-width: 4%;
+  max-width: 4%;
+  padding: 15px 10px;
+
+  border-right: 1px solid $color-line;
+  background-color: $color-primary-beta;
+
+  &__btn {
+    @include btn-hover;
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+}

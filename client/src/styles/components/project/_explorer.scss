@@ -1,0 +1,54 @@
+.explorer {
+  font-family: $font-secondary;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-width: 15%;
+  max-width: 18%;
+
+  border-right: 1px solid $color-line;
+  background-color: $color-primary-gamma;
+
+  &__header {
+    margin-bottom: 2rem;
+
+    border-bottom: 1px solid $color-line;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px 10px;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+  }
+
+  &__btn {
+    @include btn-hover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: $color-primary-alpha;
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+
+  &__title {
+    font-size: 1.6rem;
+  }
+
+  &__content {
+    padding: 0 15px;
+  }
+}
