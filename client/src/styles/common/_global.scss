@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap');
-@import '../vendor//normalize';
+@import '../../node_modules/normalize-scss/sass/_normalize';
 
 *,
 *::after,
@@ -104,10 +104,4 @@ body {
   flex-direction: column;
 
   min-height: 100vh;
-}
-
-.scroll-hidden {
-  overflow: hidden;
-
-  height: 100%;
 }
