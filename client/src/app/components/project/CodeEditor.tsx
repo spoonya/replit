@@ -13,7 +13,9 @@ export default function CodeEditor(props: any) {
         options={{
           minimap: {
             enabled: false
-          }
+          },
+          wordWrap: 'on',
+          wordWrapColumn: 80
         }}
       />
     </div>
