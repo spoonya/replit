@@ -4,6 +4,6 @@
   color: $color-primary-alpha;
 
   &:hover {
-    color: $color-primary-psi;
+    color: lighten($color-primary-psi, 5);
   }
 }

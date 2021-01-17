@@ -1,6 +1,6 @@
 import React from 'react';
 import Footer from './Footer';
-import GetStarted from './GetStarted';
+import GetStarted from './get-started/GetStarted';
 import Header from './Header';
 
 export default function Home() {

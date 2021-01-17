@@ -1,10 +1,10 @@
 import React from 'react';
+import CodeEditor from './CodeEditor';
 import Console from './Console';
-import Editor from './Editor';
 import Explorer from './Explorer';
 import Header from './Header';
-import Options from './Options';
-import Sidebar from './Sidebar';
+import Options from './options/Options';
+import Sidebar from './sidebar/Sidebar';
 
 export default function Project() {
   return (
@@ -13,7 +13,7 @@ export default function Project() {
       <div className="content">
         <Sidebar />
         <Explorer />
-        <Editor />
+        <CodeEditor language="javascript" />
         <Console />
       </div>
       <Options />
