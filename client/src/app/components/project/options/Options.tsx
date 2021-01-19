@@ -1,5 +1,6 @@
 import GroupIcon from '@material-ui/icons/Group';
 import React from 'react';
+import ToggleTheme from './ToggleTheme';
 
 export default function Options() {
   return (
@@ -9,6 +10,7 @@ export default function Options() {
           <div className="options__left">
             <button className="options__item">Spaces: 2</button>
             <button className="options__item">Font Size: 14px</button>
+            <ToggleTheme />
           </div>
           <div className="options__right">
             <p className="options__item">Ln 1, Col 1</p>

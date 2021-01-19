@@ -1,13 +1,12 @@
 .sidebar {
+  @include theme-transition;
+
   display: flex;
   align-items: center;
   flex-direction: column;
 
   width: 45px;
   padding: 15px 10px;
-
-  border-right: 1px solid $color-line;
-  background-color: $color-primary-beta;
 
   &__btn {
     @include btn-hover;

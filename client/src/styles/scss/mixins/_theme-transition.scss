@@ -1,0 +1,3 @@
+@mixin theme-transition {
+  transition: color .1s linear, background-color .1s linear;
+}

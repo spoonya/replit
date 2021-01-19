@@ -15,7 +15,7 @@ $color-primary-beta: $color-shark-alpha;
 $color-primary-gamma: $color-shark-beta;
 $color-primary-psi: $color-blue;
 $color-primary-omega: $color-black;
-$color-line: lighten($color-primary-beta, 8);
+$color-line: darken($color-primary-alpha, 73);
 // Fonts
 $font-primary: 'JetBrains Mono', monospace;
 $font-secondary: 'Roboto', sans-serif;
