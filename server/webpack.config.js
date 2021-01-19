@@ -5,7 +5,9 @@ const entry = path.resolve(__dirname, 'index.ts');
 const dist = path.resolve(__dirname, 'dist');
 
 module.exports = {
-  entry,
+  entry: {
+    server: entry,
+  },
   output: {
     path: dist,
     filename: 'server.js'
@@ -28,5 +30,5 @@ module.exports = {
         exclude: '/node_modules/'
       }
     ]
-  }
+  },
 };
