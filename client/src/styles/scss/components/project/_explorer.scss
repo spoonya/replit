@@ -1,4 +1,6 @@
 .explorer {
+  @include theme-transition;
+
   font-family: $font-secondary;
 
   display: flex;
