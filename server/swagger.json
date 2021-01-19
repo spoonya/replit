@@ -1,0 +1,59 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "0.0.1",
+    "title": "Code.it API"
+  },
+  "host": "localhost:8081",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/project/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "description": "Project ID"
+        }
+      ],
+      "get": {
+        "summary": "get specified project file tree",
+        "description": "Returns project structure for given `id`",
+        "responses": {
+          "200": {
+            "description": "project tree as JSON array"
+          },
+          "404": {
+            "description": "\"Not found\" error"
+          }
+        }
+      }
+    },
+    "/project/create": {
+      "get": {
+        "parameters": [
+          {
+            "in": "query",
+            "name": "title",
+            "type": "string",
+            "description": "Project title"
+          },
+          {
+            "in": "query",
+            "name": "lang",
+            "type": "string",
+            "description": "Project language"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "New project link in JSON format"
+          }
+        }
+      }
+    }
+  }
+}
