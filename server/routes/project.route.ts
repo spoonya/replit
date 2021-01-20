@@ -2,12 +2,21 @@ import express, { Request, Response } from 'express';
 import Config from '../config/config';
 import Project from '../database/project';
 
+interface NewProjectModel {
+  lang: string,
+  title: string,
+}
+
+interface CustomRequest<T> extends Request {
+  body?: T
+}
+
 const router = express.Router();
 
-router.get('/create', async (req: Request, res: Response) => {
+router.post('/create', async (req: CustomRequest<NewProjectModel>, res: Response) => {
   const query = req.query;
 
-  const link = await Project.create(query.lang, query.title);
+  const link = await Project.create(req.body.lang, req.body.title);
 
   const response = {
     status: 'ok',
@@ -17,7 +26,7 @@ router.get('/create', async (req: Request, res: Response) => {
   res.send(response);
 });
 
-router.get('*', async (req: Request, res: Response) => {
+router.post('*', async (req: Request, res: Response) => {
   const link = req.path.slice(1);
   res.send(await Project.get(link));
 });
