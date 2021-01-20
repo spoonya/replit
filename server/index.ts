@@ -13,7 +13,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 routes.route(app);
 
-app.use('/', express.static(staticPath));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
 app.use('/docs', express.static(path.join(__dirname, 'docs')));
+app.use('*', express.static(staticPath));
 
 app.listen(8081);
