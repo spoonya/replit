@@ -40,7 +40,7 @@ export default function CodeEditor(props: any) {
       <Editor
         className="editor__content"
         language={language}
-        theme="darkTheme"
+        theme={window.localStorage.getItem('codeit-theme') === 'light' ? 'lightTheme' : 'darkTheme'}
         options={{
           minimap: {
             enabled: false

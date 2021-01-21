@@ -29,7 +29,7 @@
         margin-bottom: .5rem;
       }
 
-      &::before {
+      &:before {
         display: inline-block;
 
         width: 1.5rem;
@@ -39,7 +39,7 @@
         content: '';
         text-align: center;
 
-        color: #fff;
+        color: #FFFFFF;
         border-radius: 50%;
         background: $color-primary-psi;
       }
