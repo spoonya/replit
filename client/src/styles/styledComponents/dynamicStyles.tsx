@@ -42,26 +42,25 @@ export const ThemifiedStyles = createGlobalStyle<Props>`
   .editor {
     background-color: ${({ theme }) => theme.colorBeta};
 
+    color:  ${({ theme }) => theme.colorAlpha};
+
     border-right: 1px solid ${({ theme }) => theme.colorLine};
-
-    .monaco-editor-background,
-    .monaco-editor .inputarea.ime-input {
-      background-color: ${({ theme }) => theme.colorBeta};
-    }
-
-    .margin-view-overlays {
-      background-color: ${({ theme }) => theme.colorBeta};
-    }
-
-    .monaco-editor.vs-dark .current-line {
-      background-color: ${({ theme }) => theme.colorEditorLine};
-    }
-
-    .monaco-editor.vs-light .current-line {
-      background-color: ${({ theme }) => theme.colorEditorLine};
-    }
   }
 
   .explorer {
-    background-color: ${({ theme }) => theme.colorBeta};
+    background-color: ${({ theme }) => theme.colorGamma};
+    border-right: 1px solid ${({ theme }) => theme.colorLine};
+
+    &__header {
+
+      border-bottom: 1px solid ${({ theme }) => theme.colorLine};
+    }
+
+    &__btn {
+      color: ${({ theme }) => theme.colorAlpha};
+    }
+
+    &__title {
+      color:  ${({ theme }) => theme.colorAlpha}
+    }
   }`;

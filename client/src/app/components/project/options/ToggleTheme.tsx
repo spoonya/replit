@@ -1,25 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import { darkTheme, lightTheme } from '~/styles/styledComponents/theme';
 import { ThemifiedStyles } from '../../../../styles/styledComponents/dynamicStyles';
-import { darkTheme, lightTheme } from '../../../../styles/styledComponents/theme';
+import Toggle from './Toggle';
+import UseLightMode from './UseLightMode';
 
 export default function ToggleTheme() {
-  const [theme, setTheme] = useState('dark');
-
-  const toggleTheme = () => {
-    if (theme === 'light') {
-      setTheme('dark');
-    } else {
-      setTheme('light');
-    }
-  };
+  const [theme, toggleTheme] = UseLightMode();
+  const themeMode = theme === 'light' ? lightTheme : darkTheme;
 
   return (
-    <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
+    <ThemeProvider theme={themeMode}>
       <ThemifiedStyles />
-      <button className="options__item" onClick={toggleTheme}>
-        Toggle Theme
-      </button>
+      <Toggle toggleTheme={toggleTheme} />
     </ThemeProvider>
   );
 }

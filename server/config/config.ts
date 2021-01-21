@@ -1,7 +1,7 @@
 export default {
   defaults: {
-    lang: 'js',
-    projectName: 'Untitled',
+    lang: "js",
+    projectName: "Untitled",
   },
-  hostname: 'http://localhost:8081',
-}
+  hostname: "http://localhost:8081",
+};

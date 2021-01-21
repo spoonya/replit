@@ -6,6 +6,7 @@ export interface Theme {
   readonly colorOmega: string;
   readonly colorLine: string;
   readonly colorEditorLine: string;
+  readonly colorEditorLineNum?: string;
 }
 
 export const darkTheme: Theme = {
@@ -14,16 +15,17 @@ export const darkTheme: Theme = {
   colorGamma: '#21252b',
   colorPsi: '#485fe0',
   colorOmega: '#000',
-  colorLine: '#454545',
+  colorLine: '#424242',
   colorEditorLine: '#333842'
 };
 
 export const lightTheme: Theme = {
-  colorAlpha: '#525252',
-  colorBeta: '#fff',
-  colorGamma: '#f5f5f5',
+  colorAlpha: '#38434f',
+  colorBeta: '#f9f9fa',
+  colorGamma: '#eff0f2',
   colorPsi: '#485fe0',
   colorOmega: '#000',
   colorLine: '#e2e2e2',
-  colorEditorLine: '#f8f8f8'
+  colorEditorLine: '#ececec',
+  colorEditorLineNum: '#a7a7a7'
 };

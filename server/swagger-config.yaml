@@ -1,12 +1,12 @@
-swagger: '2.0'
+swagger: "2.0"
 info:
   version: 0.0.1
   title: Code.it API
-host: 'localhost:8081'
+host: "localhost:8081"
 schemes:
   - http
 paths:
-  '/project/{id}':
+  "/project/{id}":
     parameters:
       - in: path
         name: id
@@ -17,9 +17,9 @@ paths:
       summary: get specified project file tree
       description: Returns project structure for given `id`
       responses:
-        '200':
+        "200":
           description: project tree as JSON array
-        '404':
+        "404":
           description: '"Not found" error'
   /project/create:
     get:
@@ -33,5 +33,5 @@ paths:
           type: string
           description: Project language
       responses:
-        '200':
+        "200":
           description: New project link in JSON format
