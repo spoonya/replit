@@ -4,7 +4,7 @@ import React from 'react';
 export default function Compile() {
   return (
     <button className="sidebar__btn" title="Compile">
-      <PlayArrowIcon style={{ fontSize: 35 }} />
+      <PlayArrowIcon style={{ fontSize: 37 }} />
     </button>
   );
 }

@@ -1,21 +1,22 @@
+import loader from '@monaco-editor/loader';
 import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
+import { darkTheme, lightTheme } from '~/styles/styledComponents/theme';
 import { ThemifiedStyles } from '../../../../styles/styledComponents/dynamicStyles';
-import { darkTheme, lightTheme } from '../../../../styles/styledComponents/theme';
 
 export default function ToggleTheme() {
-  const [theme, setTheme] = useState('dark');
+  const [lightMode, setLightMode] = useState(false);
 
   const toggleTheme = () => {
-    if (theme === 'light') {
-      setTheme('dark');
-    } else {
-      setTheme('light');
-    }
+    setLightMode(!lightMode);
+
+    loader.init().then((monaco) => {
+      lightMode ? monaco.editor.setTheme('darkTheme') : monaco.editor.setTheme('lightTheme');
+    });
   };
 
   return (
-    <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
+    <ThemeProvider theme={lightMode ? lightTheme : darkTheme}>
       <ThemifiedStyles />
       <button className="options__item" onClick={toggleTheme}>
         Toggle Theme

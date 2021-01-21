@@ -10,13 +10,12 @@
   min-width: 200px;
   max-width: 18%;
 
-  border-right: 1px solid $color-line;
   background-color: $color-primary-gamma;
 
   &__header {
     margin-bottom: 2rem;
 
-    border-bottom: 1px solid $color-line;
+    transition: border-color .1s linear;
   }
 
   &__inner {
@@ -39,8 +38,6 @@
     align-items: center;
     justify-content: center;
 
-    color: $color-primary-alpha;
-
     &:not(:last-child) {
       margin-right: 10px;
     }
@@ -48,6 +45,8 @@
 
   &__title {
     font-size: 1.6rem;
+
+    text-transform: uppercase;
   }
 
   &__content {

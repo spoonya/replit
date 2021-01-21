@@ -7,7 +7,7 @@ export default function Explorer() {
     <div className="explorer">
       <div className="explorer__header">
         <div className="explorer__inner">
-          <h3 className="explorer__title">File Explorer</h3>
+          <h3 className="explorer__title">Explorer</h3>
           <div className="explorer__buttons">
             <button className="explorer__btn" title="New File">
               <InsertDriveFileIcon style={{ fontSize: 25 }} />
