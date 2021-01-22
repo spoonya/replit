@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "build": "webpack; webpack --config ./webpack.swagger.config.js",
+    "build": "run-script-os",
+    "build:linux": "webpack; webpack --config ./webpack.swagger.config.js",
+    "build:win32": "webpack & webpack --config ./webpack.swagger.config.js",
     "watch": "webpack --watch",
     "start": "node ./dist/server.js"
   },
@@ -29,6 +31,7 @@
     "eslint-config-airbnb-typescript": "^12.0.0",
     "html-webpack-plugin": "^4.5.1",
     "json-loader": "^0.5.7",
+    "run-script-os": "^1.1.5",
     "style-loader": "^2.0.0",
     "ts-loader": "^8.0.14",
     "typescript": "^4.1.3",
