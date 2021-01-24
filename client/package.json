@@ -84,7 +84,8 @@
     "stylelint-scss": "^3.18.0",
     "terser-webpack-plugin": "^3.0.6",
     "ts-jest": "^26.1.1",
-    "typescript": "3.9.6"
+    "typescript": "3.9.6",
+    "xterm": "^4.9.0"
   },
   "eslintConfig": {
     "extends": [

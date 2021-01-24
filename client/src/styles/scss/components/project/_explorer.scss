@@ -1,55 +1,31 @@
 .explorer {
   @include theme-transition;
+  @include menu-item;
 
-  font-family: $font-secondary;
-
-  display: flex;
-  flex-direction: column;
-
-  width: 100%;
-  min-width: 200px;
-  max-width: 18%;
-
-  background-color: $color-primary-gamma;
+  display: none;
 
   &__header {
-    margin-bottom: 2rem;
-
-    transition: border-color .1s linear;
+    @include menu-item__header;
   }
 
   &__inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 15px 10px;
+    @include menu-item__inner;
   }
 
   &__buttons {
-    display: flex;
-    align-items: center;
+    @include menu-item__buttons;
   }
 
   &__btn {
     @include btn-hover;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &:not(:last-child) {
-      margin-right: 10px;
-    }
+    @include menu-item__btn;
   }
 
   &__title {
-    font-size: 1.6rem;
-
-    text-transform: uppercase;
+    @include menu-item__title;
   }
 
   &__content {
-    padding: 0 15px;
+    @include menu-item__content;
   }
 }

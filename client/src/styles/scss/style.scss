@@ -3,6 +3,7 @@
 @import 'mixins/media';
 @import 'mixins/button';
 @import 'mixins/theme-transition';
+@import 'mixins/menu-item';
 
 @import 'common/global';
 
@@ -14,4 +15,6 @@
 @import 'components/project/explorer';
 @import 'components/project/editor';
 @import 'components/project/console';
-@import 'components/project/options';
+@import 'components/project/info';
+@import 'components/project/menu';
+@import 'components/project/settings';

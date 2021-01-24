@@ -78,8 +78,8 @@ export default function ShareLink() {
   const classes = useStyles();
 
   return (
-    <div>
-      <button className="sidebar__btn" onClick={handleClickOpen} title="Share Link">
+    <div className="sidebar__item">
+      <button className="sidebar__btn" onClick={handleClickOpen} title="Link">
         <ShareIcon style={{ fontSize: 30 }} />
       </button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>

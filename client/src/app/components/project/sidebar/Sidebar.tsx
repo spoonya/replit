@@ -1,6 +1,7 @@
 import React from 'react';
 import Compile from './Compile';
 import OpenExplorer from './OpenExplorer';
+import OpenSettings from './OpenSettings';
 import ShareLink from './ShareLink';
 
 export default function Sidebar() {
@@ -9,6 +10,7 @@ export default function Sidebar() {
       <Compile />
       <OpenExplorer />
       <ShareLink />
+      <OpenSettings />
     </div>
   );
 }

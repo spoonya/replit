@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "build": "webpack; webpack --config ./webpack.swagger.config.js",
+    "build": "run-script-os",
+    "build:linux": "webpack; webpack --config ./webpack.swagger.config.js",
+    "build:win32": "webpack & webpack --config ./webpack.swagger.config.js",
     "watch": "webpack --watch",
     "start": "node ./dist/server.js"
   },

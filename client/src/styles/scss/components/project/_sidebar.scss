@@ -8,11 +8,13 @@
   width: 45px;
   padding: 15px 10px;
 
-  &__btn {
-    @include btn-hover;
-
+  &__item {
     &:not(:last-child) {
       margin-bottom: 2rem;
     }
+  }
+
+  &__btn {
+    @include btn-hover;
   }
 }
