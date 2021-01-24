@@ -1,32 +1,37 @@
 import Editor, { Monaco } from '@monaco-editor/react';
 import React, { useRef } from 'react';
+import { OPTIONS } from '~/app/constants/options.constant';
+import { getStorage } from '~/app/helpers/options.helper';
 import { darkTheme, lightTheme } from '~/styles/styledComponents/theme';
+
+export let monacoRef: React.MutableRefObject<any> | null = null;
 
 export default function CodeEditor(props: any) {
   const { language } = props;
-  const monacoRef = useRef(null);
+  monacoRef = useRef(null);
 
   function handleEditorWillMount(monaco: Monaco) {
-    monaco.editor.defineTheme('darkTheme', {
+    monaco.editor.defineTheme(OPTIONS.themes.darkTheme, {
       base: 'vs-dark',
       inherit: true,
       rules: [],
       colors: {
-        'editor.background': `${darkTheme.colorBeta}`,
-        'editor.lineHighlightBackground': `${darkTheme.colorEditorLine}`,
-        'editorSuggestWidget.foreground': `${lightTheme.colorGamma}`
+        'editor.background': `${darkTheme.beta}`,
+        'editor.lineHighlightBackground': `${darkTheme.editorLine}`,
+        'editorSuggestWidget.foreground': `${lightTheme.gamma}`
       }
     });
 
-    monaco.editor.defineTheme('lightTheme', {
+    monaco.editor.defineTheme(OPTIONS.themes.lightTheme, {
       base: 'vs',
       inherit: true,
       rules: [],
       colors: {
-        'editor.background': `${lightTheme.colorBeta}`,
-        'editor.lineHighlightBackground': `${lightTheme.colorEditorLine}`,
-        'editorLineNumber.foreground': `${lightTheme.colorEditorLineNum}`,
-        'editorSuggestWidget.background': `${lightTheme.colorGamma}`
+        'editor.background': `${lightTheme.beta}`,
+        'editor.lineHighlightBackground': `${lightTheme.editorLine}`,
+        'editorLineNumber.foreground': `${lightTheme.editorLineNum}`,
+        'editorSuggestWidget.background': `${lightTheme.gamma}`,
+        'editorCursor.foreground': `${lightTheme.alpha}`
       }
     });
   }
@@ -40,12 +45,17 @@ export default function CodeEditor(props: any) {
       <Editor
         className="editor__content"
         language={language}
-        theme={window.localStorage.getItem('codeit-theme') === 'light' ? 'lightTheme' : 'darkTheme'}
+        theme={
+          getStorage(OPTIONS.themes.storageName) === OPTIONS.themes.light
+            ? OPTIONS.themes.lightTheme
+            : OPTIONS.themes.darkTheme
+        }
         options={{
           minimap: {
             enabled: false
           },
-          tabSize: 2,
+          tabSize: +getStorage(OPTIONS.settings.indentSize.storageName) || OPTIONS.settings.indentSize.defaultValue,
+          fontSize: +getStorage(OPTIONS.settings.fontSize.storageName) || OPTIONS.settings.fontSize.defaultValue,
           wordWrap: 'on',
           wordWrapColumn: 80
         }}

@@ -1,5 +1,6 @@
 .content {
   display: flex;
+  overflow-y: hidden;
 
   width: 100%;
   height: calc(100vh - 9.1rem);

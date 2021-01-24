@@ -1,9 +1,9 @@
 import React from 'react';
 import Console from './compiler/Console';
 import CodeEditor from './editor/CodeEditor';
-import Explorer from './explorer/Explorer';
 import Header from './header/Header';
-import Options from './options/Options';
+import Info from './info/Info';
+import Menu from './menu/Menu';
 import Sidebar from './sidebar/Sidebar';
 
 export default function Project() {
@@ -12,11 +12,11 @@ export default function Project() {
       <Header />
       <div className="content">
         <Sidebar />
-        <Explorer />
+        <Menu />
         <CodeEditor language="javascript" />
         <Console />
       </div>
-      <Options />
+      <Info />
     </>
   );
 }

@@ -1,4 +1,4 @@
-.options {
+.info {
   font-family: $font-secondary;
   font-size: 1.4rem;
 
@@ -28,6 +28,10 @@
     align-items: center;
 
     color: $color-primary-alpha;
+
+    button {
+      color: $color-primary-alpha;
+    }
 
     &:not(:last-child) {
       margin-right: 3rem;
