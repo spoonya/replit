@@ -1,7 +1,7 @@
 import Editor, { Monaco } from '@monaco-editor/react';
 import React, { useRef } from 'react';
 import { OPTIONS } from '~/app/constants/options.constant';
-import { getThemeStorage } from '~/app/helpers/options.helper';
+import { getStorage } from '~/app/helpers/options.helper';
 import { darkTheme, lightTheme } from '~/styles/styledComponents/theme';
 
 export let monacoRef: React.MutableRefObject<any> | null = null;
@@ -45,12 +45,17 @@ export default function CodeEditor(props: any) {
       <Editor
         className="editor__content"
         language={language}
-        theme={getThemeStorage() === OPTIONS.themes.light ? OPTIONS.themes.lightTheme : OPTIONS.themes.darkTheme}
+        theme={
+          getStorage(OPTIONS.themes.storageName) === OPTIONS.themes.light
+            ? OPTIONS.themes.lightTheme
+            : OPTIONS.themes.darkTheme
+        }
         options={{
           minimap: {
             enabled: false
           },
-          tabSize: 2,
+          tabSize: +getStorage(OPTIONS.settings.indentSize.storageName) || OPTIONS.settings.indentSize.defaultValue,
+          fontSize: +getStorage(OPTIONS.settings.fontSize.storageName) || OPTIONS.settings.fontSize.defaultValue,
           wordWrap: 'on',
           wordWrapColumn: 80
         }}

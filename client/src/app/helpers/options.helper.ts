@@ -1,9 +1,7 @@
-import { OPTIONS } from '~/app/constants/options.constant';
-
-export const getThemeStorage = (): string => {
-  return window.localStorage.getItem(OPTIONS.themes.storageName);
+export const getStorage = (storageName: string): string => {
+  return window.localStorage.getItem(storageName);
 };
 
-export const setThemeStorage = (theme: string) => {
-  return window.localStorage.setItem(OPTIONS.themes.storageName, theme);
+export const setStorage = (storageName: string, value: string) => {
+  return window.localStorage.setItem(storageName, value);
 };

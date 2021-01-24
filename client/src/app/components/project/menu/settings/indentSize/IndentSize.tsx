@@ -4,6 +4,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import React from 'react';
+import { OPTIONS } from '~/app/constants/options.constant';
+import { getStorage, setStorage } from '~/app/helpers/options.helper';
 import { monacoRef } from '../../../editor/CodeEditor';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -23,11 +25,14 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function FontSize() {
   const classes = useStyles();
-  const [indentSize, setIndentSize] = React.useState(2);
+  const localIndentSize =
+    +getStorage(OPTIONS.settings.indentSize.storageName) || OPTIONS.settings.indentSize.defaultValue;
+  const [indentSize, setIndentSize] = React.useState(localIndentSize);
 
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setIndentSize(event.target.value as number);
     monacoRef.current.updateOptions({ tabSize: `${event.target.value}` });
+    setStorage(OPTIONS.settings.indentSize.storageName, event.target.value.toString());
   };
 
   return (
