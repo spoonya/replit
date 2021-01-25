@@ -10,6 +10,8 @@ import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import ShareIcon from '@material-ui/icons/Share';
 import React from 'react';
+import localization from '~/app/localization/localization';
+import GrayTooltip from '../common/LightToolTip';
 import LinkField from './LinkField';
 
 const styles = (theme: Theme) =>
@@ -79,8 +81,10 @@ export default function ShareLink() {
 
   return (
     <div className="sidebar__item">
-      <button className="sidebar__btn" onClick={handleClickOpen} title="Link">
-        <ShareIcon style={{ fontSize: 30 }} />
+      <button className="sidebar__btn" onClick={handleClickOpen}>
+        <GrayTooltip title={localization.tooltips.sidebar.share} arrow>
+          <ShareIcon style={{ fontSize: 30 }} />
+        </GrayTooltip>
       </button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>

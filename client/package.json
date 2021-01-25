@@ -73,6 +73,7 @@
     "postcss-scss": "^2.1.1",
     "prettier": "^2.0.5",
     "prettier-stylelint": "^0.4.2",
+    "react-localization": "^1.0.15",
     "react-resize-panel": "^0.3.5",
     "react-scripts": "3.4.1",
     "start-server-and-test": "^1.11.0",
@@ -85,8 +86,7 @@
     "stylelint-scss": "^3.18.0",
     "terser-webpack-plugin": "^3.0.6",
     "ts-jest": "^26.1.1",
-    "typescript": "3.9.6",
-    "xterm": "^4.9.0"
+    "typescript": "3.9.6"
   },
   "eslintConfig": {
     "extends": [

@@ -20,8 +20,6 @@
 
     span {
       display: block;
-      display: flex;
-      align-items: center;
 
       text-shadow: 1px 3px 5px $color-primary-omega;
 
@@ -38,8 +36,9 @@
 
         content: '';
         text-align: center;
+        vertical-align: middle;
 
-        color: #FFFFFF;
+        color: #fff;
         border-radius: 50%;
         background: $color-primary-psi;
       }

@@ -9,6 +9,7 @@ import { createStyles, Theme, withStyles, WithStyles } from '@material-ui/core/s
 import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import React from 'react';
+import localization from '~/app/localization/localization';
 import ProjectLangsList from './ProjectLangsList';
 
 const styles = (theme: Theme) =>
@@ -79,18 +80,18 @@ export default function GetStarted() {
   return (
     <div>
       <button className="intro__start" onClick={handleClickOpen}>
-        Start Coding
+        {localization.startDialog.start}
       </button>
       <Dialog onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
         <DialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Get Started
+          {localization.startDialog.getStarted}
         </DialogTitle>
         <DialogContent dividers>
           <ProjectLangsList />
         </DialogContent>
         <DialogActions>
           <Button className={classes.closeButton} autoFocus onClick={handleClose} color="primary">
-            Create project
+            {localization.startDialog.create}
           </Button>
         </DialogActions>
       </Dialog>

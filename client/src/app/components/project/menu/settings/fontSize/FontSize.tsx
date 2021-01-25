@@ -6,13 +6,14 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import React from 'react';
 import { OPTIONS } from '~/app/constants/options.constant';
 import { getStorage, setStorage } from '~/app/helpers/options.helper';
+import localization from '~/app/localization/localization';
 import { monacoRef } from '../../../editor/CodeEditor';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     formControl: {
       margin: theme.spacing(1),
-      minWidth: 120
+      minWidth: 144
     },
     selectEmpty: {
       marginTop: theme.spacing(2)
@@ -37,19 +38,19 @@ export default function FontSize() {
   return (
     <div>
       <FormControl className={classes.formControl}>
-        <InputLabel shrink>Font size</InputLabel>
+        <InputLabel shrink>{localization.settings.editor.fontSize.title}</InputLabel>
         <Select value={fontSize} onChange={handleChange} displayEmpty className={classes.selectEmpty}>
           <MenuItem className={classes.common} value={OPTIONS.settings.fontSize.values.small}>
-            Small
+            {localization.settings.editor.fontSize.variants.small}
           </MenuItem>
           <MenuItem className={classes.common} value={OPTIONS.settings.fontSize.values.normal}>
-            Normal
+            {localization.settings.editor.fontSize.variants.normal}
           </MenuItem>
           <MenuItem className={classes.common} value={OPTIONS.settings.fontSize.values.large}>
-            Large
+            {localization.settings.editor.fontSize.variants.large}
           </MenuItem>
           <MenuItem className={classes.common} value={OPTIONS.settings.fontSize.values.huge}>
-            Huge
+            {localization.settings.editor.fontSize.variants.huge}
           </MenuItem>
         </Select>
       </FormControl>

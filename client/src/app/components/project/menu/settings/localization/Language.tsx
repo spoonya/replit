@@ -7,7 +7,6 @@ import React from 'react';
 import { OPTIONS } from '~/app/constants/options.constant';
 import { getStorage, setStorage } from '~/app/helpers/options.helper';
 import localization from '~/app/localization/localization';
-import { monacoRef } from '../../../editor/CodeEditor';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -24,28 +23,28 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function FontSize() {
+export default function Language() {
   const classes = useStyles();
-  const localIndentSize =
-    +getStorage(OPTIONS.settings.indentSize.storageName) || OPTIONS.settings.indentSize.defaultValue;
-  const [indentSize, setIndentSize] = React.useState(localIndentSize);
+  const localLanguage = getStorage(OPTIONS.settings.language.storageName) || OPTIONS.settings.language.defaultValue;
+  const [language, setLanguage] = React.useState(localLanguage);
+  localization.setLanguage(language);
 
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setIndentSize(event.target.value as number);
-    monacoRef.current.updateOptions({ tabSize: `${event.target.value}` });
-    setStorage(OPTIONS.settings.indentSize.storageName, event.target.value.toString());
+    setLanguage(event.target.value as string);
+    setStorage(OPTIONS.settings.language.storageName, event.target.value.toString());
+    window.location.reload();
   };
 
   return (
     <div>
       <FormControl className={classes.formControl}>
-        <InputLabel shrink>{localization.settings.editor.indentSize.title}</InputLabel>
-        <Select value={indentSize} onChange={handleChange} displayEmpty className={classes.selectEmpty}>
-          <MenuItem className={classes.common} value={2}>
-            2
+        <InputLabel shrink>{localization.settings.general.lang}</InputLabel>
+        <Select value={language} onChange={handleChange} displayEmpty className={classes.selectEmpty}>
+          <MenuItem className={classes.common} value={OPTIONS.settings.language.values.en}>
+            English
           </MenuItem>
-          <MenuItem className={classes.common} value={4}>
-            4
+          <MenuItem className={classes.common} value={OPTIONS.settings.language.values.ru}>
+            Русский
           </MenuItem>
         </Select>
       </FormControl>

@@ -2,7 +2,7 @@
   @include theme-transition;
   @include menu-item;
 
-  display: none;
+  display: flex;
 
   &__header {
     @include menu-item__header;

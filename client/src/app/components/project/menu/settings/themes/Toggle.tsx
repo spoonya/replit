@@ -5,6 +5,7 @@ import Switch, { SwitchClassKey, SwitchProps } from '@material-ui/core/Switch';
 import React from 'react';
 import { OPTIONS } from '~/app/constants/options.constant';
 import { darkTheme } from '~/app/constants/theme.constant';
+import localization from '~/app/localization/localization';
 
 interface Styles extends Partial<Record<SwitchClassKey, string>> {
   focusVisible?: string;
@@ -50,7 +51,7 @@ export default function Toggle({ theme, toggleTheme }: any) {
     <FormGroup>
       <FormControlLabel
         control={<BlueSwitch checked={state.checkedA} onChange={handleChange} name="checkedA" />}
-        label="Light theme"
+        label={localization.settings.general.lightTheme}
       />
     </FormGroup>
   );
