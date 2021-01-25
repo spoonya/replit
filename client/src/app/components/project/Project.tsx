@@ -1,4 +1,5 @@
 import React from 'react';
+import ResizePanel from 'react-resize-panel';
 import Console from './compiler/Console';
 import CodeEditor from './editor/CodeEditor';
 import Header from './header/Header';
@@ -14,7 +15,9 @@ export default function Project() {
         <Sidebar />
         <Menu />
         <CodeEditor language="javascript" />
-        <Console />
+        <ResizePanel direction="w" style={{ width: '35%' }}>
+          <Console />
+        </ResizePanel>
       </div>
       <Info />
     </>

@@ -1,8 +1,8 @@
 import Editor, { Monaco } from '@monaco-editor/react';
 import React, { useRef } from 'react';
 import { OPTIONS } from '~/app/constants/options.constant';
+import { darkTheme, lightTheme } from '~/app/constants/theme.constant';
 import { getStorage } from '~/app/helpers/options.helper';
-import { darkTheme, lightTheme } from '~/styles/styledComponents/theme';
 
 export let monacoRef: React.MutableRefObject<any> | null = null;
 
@@ -18,7 +18,9 @@ export default function CodeEditor(props: any) {
       colors: {
         'editor.background': `${darkTheme.beta}`,
         'editor.lineHighlightBackground': `${darkTheme.editorLine}`,
-        'editorSuggestWidget.foreground': `${lightTheme.gamma}`
+        'dropdown.background': `${darkTheme.gamma}`,
+        'editorWidget.background': `${darkTheme.gamma}`,
+        'editorHoverWidget.background': `${'red'}`
       }
     });
 
@@ -30,8 +32,9 @@ export default function CodeEditor(props: any) {
         'editor.background': `${lightTheme.beta}`,
         'editor.lineHighlightBackground': `${lightTheme.editorLine}`,
         'editorLineNumber.foreground': `${lightTheme.editorLineNum}`,
-        'editorSuggestWidget.background': `${lightTheme.gamma}`,
-        'editorCursor.foreground': `${lightTheme.alpha}`
+        'editorCursor.foreground': `${lightTheme.alpha}`,
+        'dropdown.background': `${lightTheme.gamma}`,
+        'editorWidget.background': `${lightTheme.gamma}`
       }
     });
   }
@@ -45,6 +48,7 @@ export default function CodeEditor(props: any) {
       <Editor
         className="editor__content"
         language={language}
+        value={`function hello() {alert('Hello world!');}`}
         theme={
           getStorage(OPTIONS.themes.storageName) === OPTIONS.themes.light
             ? OPTIONS.themes.lightTheme
