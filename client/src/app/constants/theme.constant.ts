@@ -17,7 +17,7 @@ export const darkTheme: Theme = {
   psi: '#485fe0',
   omega: '#000',
   divider: '#424242',
-  alphaDarken: '#aaa',
+  alphaDarken: '#cfcfcf',
   editorLine: '#333842'
 };
 

@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Switch, { SwitchClassKey, SwitchProps } from '@material-ui/core/Switch';
 import React from 'react';
 import { OPTIONS } from '~/app/constants/options.constant';
-import { darkTheme } from '~/styles/styledComponents/theme';
+import { darkTheme } from '~/app/constants/theme.constant';
 
 interface Styles extends Partial<Record<SwitchClassKey, string>> {
   focusVisible?: string;

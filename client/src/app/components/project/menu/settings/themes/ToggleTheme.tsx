@@ -1,8 +1,8 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { OPTIONS } from '~/app/constants/options.constant';
+import { darkTheme, lightTheme } from '~/app/constants/theme.constant';
 import { ThemifiedStyles } from '~/styles/styledComponents/dynamicStyles';
-import { darkTheme, lightTheme } from '~/styles/styledComponents/theme';
 import Toggle from './Toggle';
 import useThemes from './useThemes';
 

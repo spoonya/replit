@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { Theme } from './theme';
+import { Theme } from '../../app/constants/theme.constant';
 
 type Props = {
   theme: Theme;
@@ -20,6 +20,16 @@ export const ThemifiedStyles = createGlobalStyle<Props>`
     span {
       color: ${({ theme }) => theme.psi};
       }
+    }
+  }
+
+  .content .ResizePanel-module_ResizeHandleHorizontal__PkS9u {
+    border: 2px solid ${({ theme }) => theme.beta};
+    background: ${({ theme }) => theme.editorLine};
+
+    span {
+      color: ${({ theme }) => theme.alphaDarken};
+      text-shadow: 1px 0 1px ${({ theme }) => theme.alpha};
     }
   }
 

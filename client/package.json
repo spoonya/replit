@@ -73,6 +73,7 @@
     "postcss-scss": "^2.1.1",
     "prettier": "^2.0.5",
     "prettier-stylelint": "^0.4.2",
+    "react-resize-panel": "^0.3.5",
     "react-scripts": "3.4.1",
     "start-server-and-test": "^1.11.0",
     "styled-components": "^5.2.1",

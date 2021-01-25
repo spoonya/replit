@@ -29,6 +29,10 @@
 
     color: $color-primary-alpha;
 
+    span {
+      margin-left: 5px;
+    }
+
     button {
       color: $color-primary-alpha;
     }
@@ -36,9 +40,5 @@
     &:not(:last-child) {
       margin-right: 3rem;
     }
-  }
-
-  &__icon {
-    margin-right: 8px;
   }
 }
