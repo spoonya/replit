@@ -1,5 +1,13 @@
-import mongoose, { ObjectId, Schema } from "mongoose";
+import mongoose, { Document, ObjectId, Schema } from "mongoose";
 const { ObjectId } = mongoose.Schema.Types;
+
+interface ILangInfo {
+  name: string,
+  value: string,
+  extension: string,
+}
+
+export interface ILangInfoModel extends ILangInfo, Document {}
 
 const Models = {
   Project: mongoose.model('Project', new Schema({
@@ -22,6 +30,12 @@ const Models = {
     children: [{ type: ObjectId, ref: 'Folder' }],
     files: [{ type: ObjectId, ref: 'File' }],
   })),
+
+  LangList: mongoose.model<ILangInfoModel>('Lang', new Schema({
+    lang: String,
+    value: String,
+    extension: String,
+  }))
 }
 
 export default Models;
