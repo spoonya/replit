@@ -28,8 +28,8 @@ interface Options {
     readonly language: {
       readonly defaultValue: string;
       readonly values: {
-        readonly ru: 'ru';
-        readonly en: 'en';
+        readonly ru: string;
+        readonly en: string;
       };
       readonly storageName: string;
     };
@@ -64,10 +64,10 @@ export const OPTIONS: Options = {
       storageName: 'codeit-fontSize'
     },
     language: {
-      defaultValue: 'en',
+      defaultValue: 'en-EN',
       values: {
-        ru: 'ru',
-        en: 'en'
+        ru: 'ru-RU',
+        en: 'en-EN'
       },
       storageName: 'codeit-localization'
     }

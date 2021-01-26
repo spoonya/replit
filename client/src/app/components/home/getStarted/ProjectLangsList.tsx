@@ -4,7 +4,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import React from 'react';
-import localization from '~/app/localization/localization';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default function ProjectLangsList() {
+  const { t } = useTranslation();
   const classes = useStyles();
   const [lang, setLang] = React.useState('');
 
@@ -32,7 +33,7 @@ export default function ProjectLangsList() {
   return (
     <div>
       <FormControl className={classes.formControl}>
-        <InputLabel className={classes.common}>{localization.startDialog.language}</InputLabel>
+        <InputLabel className={classes.common}>{t('startDialog.language')}</InputLabel>
         <Select className={classes.common} value={lang} onChange={handleChange}>
           <MenuItem className={classes.common} value={'JavaScript'}>
             JavaScript

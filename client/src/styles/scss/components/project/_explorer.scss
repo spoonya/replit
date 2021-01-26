@@ -1,7 +1,6 @@
 .explorer {
   @include theme-transition;
   @include menu-item;
-
   display: flex;
 
   &__header {

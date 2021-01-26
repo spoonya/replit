@@ -1,6 +1,7 @@
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -14,13 +15,14 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default function BasicTextFields() {
+  const { t } = useTranslation();
   const classes = useStyles();
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <TextField
         id="standard-basic"
-        label="Shareable Link"
+        label={t('sidebar.share.label')}
         value="codeit.io/project/projectid"
         InputProps={{
           style: {

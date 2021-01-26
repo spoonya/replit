@@ -4,9 +4,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { OPTIONS } from '~/app/constants/options.constant';
 import { getStorage, setStorage } from '~/app/helpers/options.helper';
-import localization from '~/app/localization/localization';
 import { monacoRef } from '../../../editor/CodeEditor';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -24,7 +24,8 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function FontSize() {
+export default function IndentSize() {
+  const { t } = useTranslation();
   const classes = useStyles();
   const localIndentSize =
     +getStorage(OPTIONS.settings.indentSize.storageName) || OPTIONS.settings.indentSize.defaultValue;
@@ -39,7 +40,7 @@ export default function FontSize() {
   return (
     <div>
       <FormControl className={classes.formControl}>
-        <InputLabel shrink>{localization.settings.editor.indentSize.title}</InputLabel>
+        <InputLabel shrink>{t('settings.editor.indentSize.title')}</InputLabel>
         <Select value={indentSize} onChange={handleChange} displayEmpty className={classes.selectEmpty}>
           <MenuItem className={classes.common} value={2}>
             2
