@@ -4,6 +4,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { OPTIONS } from '~/app/constants/options.constant';
 import { getStorage, setStorage } from '~/app/helpers/options.helper';
 import { monacoRef } from '../../../editor/CodeEditor';
@@ -12,7 +13,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     formControl: {
       margin: theme.spacing(1),
-      minWidth: 120
+      minWidth: 144
     },
     selectEmpty: {
       marginTop: theme.spacing(2)
@@ -24,6 +25,7 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export default function FontSize() {
+  const { t } = useTranslation();
   const classes = useStyles();
   const localFontSize = +getStorage(OPTIONS.settings.fontSize.storageName) || OPTIONS.settings.fontSize.defaultValue;
   const [fontSize, setFontSize] = React.useState(localFontSize);
@@ -37,19 +39,19 @@ export default function FontSize() {
   return (
     <div>
       <FormControl className={classes.formControl}>
-        <InputLabel shrink>Font size</InputLabel>
+        <InputLabel shrink>{t('settings.editor.fontSize.title')}</InputLabel>
         <Select value={fontSize} onChange={handleChange} displayEmpty className={classes.selectEmpty}>
           <MenuItem className={classes.common} value={OPTIONS.settings.fontSize.values.small}>
-            Small
+            {t('settings.editor.fontSize.variants.small')}
           </MenuItem>
           <MenuItem className={classes.common} value={OPTIONS.settings.fontSize.values.normal}>
-            Normal
+            {t('settings.editor.fontSize.variants.normal')}
           </MenuItem>
           <MenuItem className={classes.common} value={OPTIONS.settings.fontSize.values.large}>
-            Large
+            {t('settings.editor.fontSize.variants.large')}
           </MenuItem>
           <MenuItem className={classes.common} value={OPTIONS.settings.fontSize.values.huge}>
-            Huge
+            {t('settings.editor.fontSize.variants.huge')}
           </MenuItem>
         </Select>
       </FormControl>

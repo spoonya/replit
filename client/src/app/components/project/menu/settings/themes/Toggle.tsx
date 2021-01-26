@@ -3,6 +3,7 @@ import FormGroup from '@material-ui/core/FormGroup';
 import { withStyles } from '@material-ui/core/styles';
 import Switch, { SwitchClassKey, SwitchProps } from '@material-ui/core/Switch';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { OPTIONS } from '~/app/constants/options.constant';
 import { darkTheme } from '~/app/constants/theme.constant';
 
@@ -30,6 +31,7 @@ const BlueSwitch = withStyles({
 
 export default function Toggle({ theme, toggleTheme }: any) {
   let isChecked = false;
+  const { t } = useTranslation();
 
   if (theme === OPTIONS.themes.light) {
     isChecked = true;
@@ -50,7 +52,7 @@ export default function Toggle({ theme, toggleTheme }: any) {
     <FormGroup>
       <FormControlLabel
         control={<BlueSwitch checked={state.checkedA} onChange={handleChange} name="checkedA" />}
-        label="Light theme"
+        label={t('settings.general.lightTheme')}
       />
     </FormGroup>
   );

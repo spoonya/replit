@@ -25,6 +25,14 @@ interface Options {
       };
       readonly storageName: string;
     };
+    readonly language: {
+      readonly defaultValue: string;
+      readonly values: {
+        readonly ru: string;
+        readonly en: string;
+      };
+      readonly storageName: string;
+    };
   };
 }
 
@@ -54,6 +62,14 @@ export const OPTIONS: Options = {
         huge: 24
       },
       storageName: 'codeit-fontSize'
+    },
+    language: {
+      defaultValue: 'en-EN',
+      values: {
+        ru: 'ru-RU',
+        en: 'en-EN'
+      },
+      storageName: 'codeit-localization'
     }
   }
 };
