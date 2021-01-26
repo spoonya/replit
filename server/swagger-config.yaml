@@ -6,6 +6,13 @@ host: "localhost:8081"
 schemes:
   - http
 paths:
+  "/langs":
+    post:
+      produces: application/json
+      description: Get current supported programming languages
+      responses:
+        "200":
+          description: List of supported programming languages
   "/project/{id}":
     parameters:
       - in: path
@@ -13,7 +20,7 @@ paths:
         required: true
         type: string
         description: Project ID
-    get:
+    post:
       summary: get specified project file tree
       description: Returns project structure for given `id`
       responses:
@@ -22,16 +29,26 @@ paths:
         "404":
           description: '"Not found" error'
   /project/create:
-    get:
+    post:
+      consumes:
+        - application/json
       parameters:
-        - in: query
-          name: title
-          type: string
-          description: Project title
-        - in: query
-          name: lang
-          type: string
-          description: Project language
+        - in: body
+          name: project
+          description: New project settings
+          schema:
+            $ref: "#/components/schemas/NewProject"
       responses:
         "200":
           description: New project link in JSON format
+components:
+  schemas:
+    NewProject:
+      type: object
+      properties:
+        title:
+          description: Project name
+          type: string
+        lang:
+          description: Project language
+          type: string

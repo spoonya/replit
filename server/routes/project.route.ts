@@ -1,14 +1,11 @@
 import express, { Request, Response } from 'express';
 import Config from '../config/config';
 import Project from '../database/project';
+import { CustomRequest } from './interfaces';
 
 interface NewProjectModel {
   lang: string,
   title: string,
-}
-
-interface CustomRequest<T> extends Request {
-  body?: T
 }
 
 const router = express.Router();

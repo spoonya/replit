@@ -10,6 +10,7 @@ const app = express();
 const routes = new Routes();
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 routes.route(app);
 

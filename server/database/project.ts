@@ -29,13 +29,14 @@ export interface Error {
   error: string,
 }
 
-interface ExtensionList {
-  [key: string]: string,
+export interface Lang {
+  name: string,
+  value: string,
+  extension: string,
 }
 
-const extensions: ExtensionList = {
-  js: 'js',
-  python: 'py'
+interface ExtensionList {
+  [key: string]: string,
 }
 
 export default {
@@ -76,28 +77,32 @@ export default {
 
   create: async function(lang: string, title: string): Promise<string> {
     const created = Date.now();
+    
+    const langInfo: Lang | null = await Models.LangList.findOne({ value: lang });
+    const langName = (langInfo) ? langInfo.name : "JavaScript";
+    const extension = (langInfo) ? langInfo.extension : 'js';
 
     let link: string = await this.createLink()
 
     const project: Document = await Models.Project.create({
       created,
       title,
-      lang,
+      lang: extension,
       link,
     });
 
     const folder = await Models.Folder.create({
       title: 'root',
       parent: project.id,
-    })
+    });
 
-    const indexFileName = `index.${extensions[lang] as string}`;
+    const indexFileName = `index${extension}`;
 
     const indexFile = await Models.File.create({
       title: indexFileName,
       body: '',
       parent: folder.id,
-    })
+    });
 
     await project.update({ root: folder.id }).exec()
     await folder.update({ $push: { files: indexFile.id } }).exec()
