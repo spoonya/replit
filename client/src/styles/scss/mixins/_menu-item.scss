@@ -15,7 +15,7 @@
 @mixin menu-item__header {
   margin-bottom: 2rem;
 
-  transition: border-color .1s linear;
+  transition: border-color 0.1s linear;
 }
 
 @mixin menu-item__inner {
