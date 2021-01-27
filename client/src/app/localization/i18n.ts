@@ -4,7 +4,6 @@ import { OPTIONS } from '../constants/options.constant';
 import { getStorage } from '../helpers/options.helper';
 
 i18n.use(LanguageDetector).init({
-  lng: getStorage(OPTIONS.settings.language.storageName),
   resources: {
     en: {
       translations: {
@@ -36,7 +35,7 @@ i18n.use(LanguageDetector).init({
         },
         sidebar: {
           share: {
-            title: 'Share Link',
+            title: 'Share',
             label: 'Shareable Link',
             btn: 'Copy link'
           }
@@ -133,8 +132,8 @@ i18n.use(LanguageDetector).init({
       }
     }
   },
+  lng: getStorage(OPTIONS.settings.language.storageName),
   fallbackLng: 'en',
-  debug: true,
   ns: ['translations'],
   defaultNS: 'translations',
   interpolation: {

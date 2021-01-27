@@ -11,7 +11,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import ShareIcon from '@material-ui/icons/Share';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import GrayTooltip from '../common/LightToolTip';
+import GrayTooltip from '../common/CommonTooltip';
 import LinkField from './LinkField';
 
 const styles = (theme: Theme) =>

@@ -1,7 +1,7 @@
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import GrayTooltip from '../common/LightToolTip';
+import GrayTooltip from '../common/CommonTooltip';
 
 export default function Compile() {
   const { t } = useTranslation();

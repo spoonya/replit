@@ -4,9 +4,9 @@ import Settings from './settings/Settings';
 
 export default function Menu() {
   return (
-    <div className="menu">
+    <>
       <Explorer />
       <Settings />
-    </div>
+    </>
   );
 }

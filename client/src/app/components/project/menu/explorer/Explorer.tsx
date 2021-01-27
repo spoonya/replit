@@ -1,14 +1,23 @@
 import FolderIcon from '@material-ui/icons/Folder';
 import InsertDriveFileIcon from '@material-ui/icons/InsertDriveFile';
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import GrayTooltip from '../../common/LightToolTip';
+import GrayTooltip from '../../common/CommonTooltip';
+import { visibleExplorerRef } from '../../sidebar/OpenExplorer';
+
+export let setVisibleExplorerRef: React.MutableRefObject<any> | null = null;
 
 export default function Explorer() {
   const { t } = useTranslation();
+  const [visible, setVisible] = useState(visibleExplorerRef.current);
+  setVisibleExplorerRef = useRef(setVisible);
+
+  useEffect(() => {
+    visibleExplorerRef.current = visible;
+  }, [visible]);
 
   return (
-    <div className="explorer">
+    <div className="explorer" style={{ display: visible ? 'flex' : 'none' }}>
       <div className="explorer__header">
         <div className="explorer__inner">
           <h3 className="explorer__title"> {t('explorer.title')}</h3>

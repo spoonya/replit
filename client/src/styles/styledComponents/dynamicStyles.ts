@@ -57,12 +57,10 @@ export const ThemifiedStyles = createGlobalStyle<Props>`
     border-right: 1px solid ${({ theme }) => theme.divider};
   }
 
-  .menu {
-    border-right: 1px solid ${({ theme }) => theme.divider};
-  }
-
   .explorer, .settings {
     background-color: ${({ theme }) => theme.gamma};
+
+    border-right: 1px solid ${({ theme }) => theme.divider};
 
     &__header {
       border-bottom: 1px solid ${({ theme }) => theme.divider};

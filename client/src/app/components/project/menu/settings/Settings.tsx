@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { visibleSettingsRef } from '../../sidebar/OpenSettings';
 import FontSize from './fontSize/FontSize';
 import IndentSize from './indentSize/IndentSize';
 import Language from './localization/Language';
 import ToggleTheme from './themes/ToggleTheme';
 
+export let setVisibleSettingsRef: React.MutableRefObject<any> | null = null;
+
 export default function Explorer() {
   const { t } = useTranslation();
+  const [visible, setVisible] = useState(visibleSettingsRef.current);
+  setVisibleSettingsRef = useRef(setVisible);
+
+  useEffect(() => {
+    visibleSettingsRef.current = visible;
+  }, [visible]);
 
   return (
-    <div className="settings">
+    <div className="settings" style={{ display: visible ? 'flex' : 'none' }}>
       <div className="settings__header">
         <div className="settings__inner">
           <h3 className="settings__title">{t('settings.title')}</h3>
@@ -33,6 +42,8 @@ export default function Explorer() {
             <ul className="settings__sublist">
               <li className="settings__subitem">
                 <FontSize />
+              </li>
+              <li className="settings__subitem">
                 <IndentSize />
               </li>
             </ul>
