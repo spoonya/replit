@@ -1,4 +1,5 @@
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import express from 'express';
 import path from 'path';
 import './database/database';
@@ -9,13 +10,12 @@ console.log(staticPath);
 const app = express();
 const routes = new Routes();
 
+app.use(cors()) // Should be configured for production build
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 routes.route(app);
 
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded());
 app.use('/', express.static(staticPath));
 app.use('/project', express.static(staticPath));
 app.use('/project/*', express.static(staticPath));
