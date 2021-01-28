@@ -16,6 +16,7 @@ i18n.use(LanguageDetector).init({
         startDialog: {
           start: 'Start coding',
           getStarted: 'Get Started',
+          title: 'Project title',
           language: 'Language',
           create: 'Create project'
         },
@@ -80,7 +81,8 @@ i18n.use(LanguageDetector).init({
           start: 'Начать работу',
           getStarted: 'Начать',
           language: 'Язык',
-          create: 'Создать проект'
+          create: 'Создать проект',
+          title: 'Название проекта'
         },
         tooltips: {
           sidebar: {
