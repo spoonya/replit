@@ -43,18 +43,29 @@ export const ThemifiedStyles = createGlobalStyle<Props>`
     }
   }
 
-  .console {
+  .console-wrapper {
     background-color: ${({ theme }) => theme.beta};
 
-    color: ${({ theme }) => theme.alpha};
+    .console {
+      background-color: ${({ theme }) => theme.beta};
+      border-left: 1px solid ${({ theme }) => theme.divider};
+
+      color: ${({ theme }) => theme.alpha};
+
+      span {
+        color: ${({ theme }) => theme.psi};
+      }
+
+      input {
+        color: ${({ theme }) => theme.alphaDarken};
+      }
+    }
   }
 
   .editor {
     background-color: ${({ theme }) => theme.beta};
 
     color:  ${({ theme }) => theme.alpha};
-
-    border-right: 1px solid ${({ theme }) => theme.divider};
   }
 
   .explorer, .settings {
