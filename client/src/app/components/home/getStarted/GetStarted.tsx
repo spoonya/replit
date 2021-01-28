@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, TextField } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import MuiDialogActions from '@material-ui/core/DialogActions';
@@ -10,6 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { OPTIONS } from '~/app/constants/options.constant';
 import ProjectLangsList from './ProjectLangsList';
 
 const styles = (theme: Theme) =>
@@ -23,14 +24,22 @@ const styles = (theme: Theme) =>
       right: theme.spacing(1),
       top: theme.spacing(1),
       color: theme.palette.grey[500]
-    }
+    },
   });
 
 const useStyles = makeStyles({
   closeButton: {
     fontSize: '1.7rem'
-  }
+  },
 });
+
+const textFieldStyles = makeStyles((theme: Theme) => createStyles({
+  root: {
+    fontSize: '1.8rem',
+    padding: theme.spacing(1),
+    width: '100%',
+  }
+}))
 
 export interface DialogTitleProps extends WithStyles<typeof styles> {
   id: string;
@@ -68,6 +77,8 @@ const DialogActions = withStyles((theme: Theme) => ({
 export default function GetStarted() {
   const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
+  const [lang, setLang] = React.useState('');
+  const [title, setTitle] = React.useState('Untitled');
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -76,7 +87,40 @@ export default function GetStarted() {
     setOpen(false);
   };
 
+  const handleLangChange = (lang: string) => {
+    setLang(lang)
+  }
+
+  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value);
+  }
+
+  const handleStart = () => {
+    async function fetchProjectLink() {
+      const url = `${OPTIONS.settings.backend.host}/project/create`;
+      const payload = JSON.stringify({
+        title,
+        lang,
+      });
+
+      const fetchOptions = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: payload,
+      };
+
+      const res = await fetch(url, fetchOptions);
+      const link = (await res.json()).link;
+      window.location.href = link;
+    }
+
+    fetchProjectLink();
+  }
+
   const classes = useStyles();
+  const textFieldClasses = textFieldStyles();
 
   return (
     <div>
@@ -88,10 +132,16 @@ export default function GetStarted() {
           {t('startDialog.getStarted')}
         </DialogTitle>
         <DialogContent dividers>
-          <ProjectLangsList />
+          <TextField 
+            InputProps={{style: {fontSize: '1.8rem'}}}
+            InputLabelProps={{style: {fontSize: '1.8rem', padding: '8px'}}}
+            className={textFieldClasses.root}
+            label={ t('startDialog.title')}
+            value={ title } onChange={ handleTitleChange } />
+          <ProjectLangsList changeHandler={ handleLangChange } />
         </DialogContent>
         <DialogActions>
-          <Button className={classes.closeButton} autoFocus onClick={handleClose} color="primary">
+          <Button className={classes.closeButton} autoFocus onClick={handleStart} color="primary">
             {t('startDialog.create')}
           </Button>
         </DialogActions>

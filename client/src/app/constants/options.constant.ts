@@ -33,6 +33,9 @@ interface Options {
       };
       readonly storageName: string;
     };
+    readonly backend: {
+      host: string,
+    }
   };
 }
 
@@ -70,6 +73,9 @@ export const OPTIONS: Options = {
         en: 'en-EN'
       },
       storageName: 'codeit-localization'
+    },
+    backend: {
+      host: 'http://localhost:8081',
     }
   }
 };

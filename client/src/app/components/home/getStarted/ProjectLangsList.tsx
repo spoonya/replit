@@ -6,6 +6,11 @@ import Select from '@material-ui/core/Select';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { OPTIONS } from '~/app/constants/options.constant';
+
+interface ProjectLangsListProps {
+  changeHandler: Function,
+}
 
 interface LangInfo {
   name: string,
@@ -32,7 +37,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function ProjectLangsList() {
+export default function ProjectLangsList({ changeHandler }: ProjectLangsListProps) {
   const { t } = useTranslation();
   const classes = useStyles();
   const [lang, setLang] = React.useState('');
@@ -41,6 +46,7 @@ export default function ProjectLangsList() {
 
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setLang(event.target.value as string);
+    changeHandler(event.target.value as string);
   };
 
   useEffect(() => {
@@ -50,7 +56,8 @@ export default function ProjectLangsList() {
       };
 
       try {
-        const res = await fetch('http://localhost:8081/langs', fetchOptions);
+        const url = `${OPTIONS.settings.backend.host}/langs`;
+        const res = await fetch(url, fetchOptions);
         setLoaded(true);
         
         const langsInfo: LangList = await res.json();
