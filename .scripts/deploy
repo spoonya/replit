@@ -7,3 +7,4 @@ npm run build
 pm2 stop replit
 pm2 delete replit
 pm2 start --name replit ../server/dist/server.js
+curl -LI http://localhost:8081/setup
