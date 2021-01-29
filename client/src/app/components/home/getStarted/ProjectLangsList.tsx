@@ -13,9 +13,9 @@ interface ProjectLangsListProps {
 }
 
 interface LangInfo {
-  name: string;
-  value: string;
-  extension: string;
+  lang: string,
+  value: string,
+  extension: string,
 }
 
 interface LangList {
@@ -74,7 +74,7 @@ export default function ProjectLangsList({ changeHandler }: ProjectLangsListProp
     return langs.map((langInfo, i) => {
       return (
         <MenuItem key={i} className={classes.common} value={langInfo.value}>
-          {langInfo.name}
+        {langInfo.lang}
         </MenuItem>
       );
     });

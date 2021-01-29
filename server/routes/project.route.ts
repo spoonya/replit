@@ -1,5 +1,4 @@
 import express, { Request, Response } from 'express';
-import Config from '../config/config';
 import Project from '../database/project';
 import { CustomRequest } from './interfaces';
 
@@ -17,7 +16,7 @@ router.post('/create', async (req: CustomRequest<NewProjectModel>, res: Response
 
   const response = {
     status: 'ok',
-    link: `${Config.hostname}/project/${link}`,
+    link: `/project/${link}`,
   }
 
   res.send(response);
