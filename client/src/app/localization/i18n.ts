@@ -4,6 +4,18 @@ import { OPTIONS } from '../constants/options.constant';
 import { getStorage } from '../helpers/options.helper';
 
 i18n.use(LanguageDetector).init({
+  lng: getStorage(OPTIONS.settings.language.storageName),
+  fallbackLng: 'en',
+  ns: ['translations'],
+  defaultNS: 'translations',
+  interpolation: {
+    escapeValue: false,
+    formatSeparator: ','
+  },
+  returnObjects: true,
+  react: {
+    wait: true
+  },
   resources: {
     en: {
       translations: {
@@ -72,7 +84,7 @@ i18n.use(LanguageDetector).init({
     ru: {
       translations: {
         slogan: {
-          code: 'Программируйте ',
+          code: 'Программируйте',
           create: 'Создавайте',
           collaborate: 'Объединяйтесь'
         },
@@ -132,19 +144,71 @@ i18n.use(LanguageDetector).init({
           }
         }
       }
+    },
+    uk: {
+      translations: {
+        slogan: {
+          code: 'Програмуйте',
+          create: 'Створюйте',
+          collaborate: `Об'єднуйтеся`
+        },
+        descrip: 'Онлайн-редактор і компілятор для спільної роботи в реальному часі',
+        startDialog: {
+          start: 'Почати роботу',
+          getStarted: 'Почати',
+          language: 'Мова',
+          create: 'Створити проект',
+          title: 'Назва проекту'
+        },
+        tooltips: {
+          sidebar: {
+            compile: 'Компілювати',
+            explorer: 'Файли',
+            share: 'Поділитися',
+            settings: 'Налаштування'
+          },
+          menu: {
+            explorer: {
+              newFile: 'Створити файл',
+              newFolder: 'Створити папку'
+            }
+          }
+        },
+        sidebar: {
+          share: {
+            title: 'Поділитися посиланням',
+            label: 'Посилання загального доступу',
+            btn: 'Копіювати'
+          }
+        },
+        explorer: {
+          title: 'Файли'
+        },
+        settings: {
+          title: 'Налаштування',
+          general: {
+            title: 'Загальні',
+            lightTheme: 'Світла тема',
+            lang: 'Мова'
+          },
+          editor: {
+            title: 'Редактор',
+            fontSize: {
+              title: 'Розмір шрифту',
+              variants: {
+                small: 'маленький',
+                normal: 'нормальний',
+                large: 'великий',
+                huge: 'величезний'
+              }
+            },
+            indentSize: {
+              title: 'Розмір відступу'
+            }
+          }
+        }
+      }
     }
-  },
-  lng: getStorage(OPTIONS.settings.language.storageName),
-  fallbackLng: 'en',
-  ns: ['translations'],
-  defaultNS: 'translations',
-  interpolation: {
-    escapeValue: false,
-    formatSeparator: ','
-  },
-  returnObjects: true,
-  react: {
-    wait: true
   }
 });
 

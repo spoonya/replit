@@ -1,6 +1,7 @@
 .explorer {
   @include theme-transition;
-  @include panel;
+
+@include panel;
 
   &__header {
     @include panel__header;
@@ -16,7 +17,8 @@
 
   &__btn {
     @include btn-hover;
-    @include panel__btn;
+
+@include panel__btn;
   }
 
   &__title {

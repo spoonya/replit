@@ -1,0 +1,24 @@
+.not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  height: 82vh;
+
+  &__title {
+    font-size: 8rem;
+    text-align: center;
+
+    span {
+      font-size: 10rem;
+      display: block;
+    }
+  }
+
+  &__home {
+    font-size: 7rem;
+    text-decoration: underline;
+    color: $color-primary-psi;
+  }
+}

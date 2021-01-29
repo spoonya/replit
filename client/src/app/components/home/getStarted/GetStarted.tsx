@@ -24,22 +24,24 @@ const styles = (theme: Theme) =>
       right: theme.spacing(1),
       top: theme.spacing(1),
       color: theme.palette.grey[500]
-    },
+    }
   });
 
 const useStyles = makeStyles({
-  closeButton: {
+  createButton: {
     fontSize: '1.7rem'
-  },
+  }
 });
 
-const textFieldStyles = makeStyles((theme: Theme) => createStyles({
-  root: {
-    fontSize: '1.8rem',
-    padding: theme.spacing(1),
-    width: '100%',
-  }
-}))
+const textFieldStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      fontSize: '1.8rem',
+      padding: theme.spacing(1),
+      width: '100%'
+    }
+  })
+);
 
 export interface DialogTitleProps extends WithStyles<typeof styles> {
   id: string;
@@ -88,19 +90,19 @@ export default function GetStarted() {
   };
 
   const handleLangChange = (lang: string) => {
-    setLang(lang)
-  }
+    setLang(lang);
+  };
 
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
-  }
+  };
 
   const handleStart = () => {
     async function fetchProjectLink() {
       const url = `${OPTIONS.settings.backend.host}/project/create`;
       const payload = JSON.stringify({
         title,
-        lang,
+        lang
       });
 
       const fetchOptions = {
@@ -108,7 +110,7 @@ export default function GetStarted() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: payload,
+        body: payload
       };
 
       const res = await fetch(url, fetchOptions);
@@ -117,7 +119,7 @@ export default function GetStarted() {
     }
 
     fetchProjectLink();
-  }
+  };
 
   const classes = useStyles();
   const textFieldClasses = textFieldStyles();
@@ -132,16 +134,18 @@ export default function GetStarted() {
           {t('startDialog.getStarted')}
         </DialogTitle>
         <DialogContent dividers>
-          <TextField 
-            InputProps={{style: {fontSize: '1.8rem'}}}
-            InputLabelProps={{style: {fontSize: '1.8rem', padding: '8px'}}}
+          <TextField
+            InputProps={{ style: { fontSize: '1.8rem' } }}
+            InputLabelProps={{ style: { fontSize: '1.8rem', padding: '8px' } }}
             className={textFieldClasses.root}
-            label={ t('startDialog.title')}
-            value={ title } onChange={ handleTitleChange } />
-          <ProjectLangsList changeHandler={ handleLangChange } />
+            label={t('startDialog.title')}
+            value={title}
+            onChange={handleTitleChange}
+          />
+          <ProjectLangsList changeHandler={handleLangChange} />
         </DialogContent>
         <DialogActions>
-          <Button className={classes.closeButton} autoFocus onClick={handleStart} color="primary">
+          <Button className={classes.createButton} autoFocus onClick={handleStart} color="primary">
             {t('startDialog.create')}
           </Button>
         </DialogActions>

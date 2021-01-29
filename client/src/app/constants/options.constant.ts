@@ -30,12 +30,13 @@ interface Options {
       readonly values: {
         readonly ru: string;
         readonly en: string;
+        readonly uk: string;
       };
       readonly storageName: string;
     };
     readonly backend: {
-      host: string,
-    }
+      host: string;
+    };
   };
 }
 
@@ -70,12 +71,13 @@ export const OPTIONS: Options = {
       defaultValue: 'en-EN',
       values: {
         ru: 'ru-RU',
-        en: 'en-EN'
+        en: 'en-EN',
+        uk: 'uk-UA'
       },
       storageName: 'codeit-localization'
     },
     backend: {
-      host: 'http://localhost:8081',
+      host: 'http://localhost:8081'
     }
   }
 };
