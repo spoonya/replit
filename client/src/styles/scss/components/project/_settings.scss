@@ -1,5 +1,6 @@
 .settings {
   @include theme-transition;
+
   @include panel;
 
   &__header {
@@ -32,12 +33,12 @@
 
   &__subitem {
     &:not(:last-child) {
-      margin-bottom: 0.5rem;
+      margin-bottom: .5rem;
     }
   }
 
   &__sublist {
-    padding-left: 0.3rem;
+    padding-left: .3rem;
   }
 
   .MuiTypography-body1 {

@@ -23,7 +23,7 @@ export default function BasicTextFields() {
       <TextField
         id="standard-basic"
         label={t('sidebar.share.label')}
-        value="codeit.io/project/projectid"
+        value={window.location.href}
         InputProps={{
           style: {
             fontSize: '1.8rem'

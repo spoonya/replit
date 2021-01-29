@@ -6,7 +6,11 @@ import { getStorage } from '~/app/helpers/options.helper';
 
 export let monacoRef: React.MutableRefObject<any> | null = null;
 
-export default function CodeEditor(props: any) {
+interface Props {
+  language: string;
+}
+
+export default function CodeEditor(props: Props) {
   const { language } = props;
   monacoRef = useRef(null);
 

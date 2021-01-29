@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     formControl: {
       margin: theme.spacing(1),
-      minWidth: 144
+      minWidth: 145
     },
     selectEmpty: {
       marginTop: theme.spacing(2)
@@ -49,6 +49,9 @@ export default function Language() {
           </MenuItem>
           <MenuItem className={classes.common} value={OPTIONS.settings.language.values.ru}>
             Русский
+          </MenuItem>
+          <MenuItem className={classes.common} value={OPTIONS.settings.language.values.uk}>
+            Українська
           </MenuItem>
         </Select>
       </FormControl>

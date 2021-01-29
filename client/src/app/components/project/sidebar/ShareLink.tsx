@@ -29,7 +29,7 @@ const styles = (theme: Theme) =>
   });
 
 const useStyles = makeStyles({
-  closeButton: {
+  copyButton: {
     fontSize: '1.7rem'
   }
 });
@@ -74,8 +74,13 @@ export default function ShareLink() {
   const handleClickOpen = () => {
     setOpen(true);
   };
+
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const copyUrl = () => {
+    navigator.clipboard.writeText(window.location.toString());
   };
 
   const classes = useStyles();
@@ -95,7 +100,15 @@ export default function ShareLink() {
           <LinkField />
         </DialogContent>
         <DialogActions>
-          <Button className={classes.closeButton} autoFocus onClick={handleClose} color="primary">
+          <Button
+            className={classes.copyButton}
+            autoFocus
+            onClick={() => {
+              copyUrl();
+              handleClose();
+            }}
+            color="primary"
+          >
             {t('sidebar.share.btn')}
           </Button>
         </DialogActions>

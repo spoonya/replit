@@ -9,17 +9,17 @@ import { useTranslation } from 'react-i18next';
 import { OPTIONS } from '~/app/constants/options.constant';
 
 interface ProjectLangsListProps {
-  changeHandler: Function,
+  changeHandler: Function;
 }
 
 interface LangInfo {
-  name: string,
-  value: string,
-  extension: string,
+  name: string;
+  value: string;
+  extension: string;
 }
 
 interface LangList {
-  langs: LangInfo[],
+  langs: LangInfo[];
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -59,37 +59,37 @@ export default function ProjectLangsList({ changeHandler }: ProjectLangsListProp
         const url = `${OPTIONS.settings.backend.host}/langs`;
         const res = await fetch(url, fetchOptions);
         setLoaded(true);
-        
+
         const langsInfo: LangList = await res.json();
         setLangs(langsInfo.langs);
-      }
-      catch(e) {
+      } catch (e) {
         console.log(e);
       }
     }
 
     fetchLangs();
-  }, [])
+  }, []);
 
   function renderLangList(): JSX.Element | JSX.Element[] {
     return langs.map((langInfo, i) => {
       return (
         <MenuItem key={i} className={classes.common} value={langInfo.value}>
-        {langInfo.name}
+          {langInfo.name}
         </MenuItem>
-      )
-    })
+      );
+    });
   }
 
-  return (loaded) ? (
+  return loaded ? (
     <div>
       <FormControl className={classes.formControl}>
         <InputLabel className={classes.common}>{t('startDialog.language')}</InputLabel>
         <Select className={classes.common} value={lang} onChange={handleChange}>
-          { renderLangList() }
+          {renderLangList()}
         </Select>
       </FormControl>
     </div>
-  )
-  : (<CircularProgress />);
+  ) : (
+    <CircularProgress />
+  );
 }
