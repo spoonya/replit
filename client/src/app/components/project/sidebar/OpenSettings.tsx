@@ -2,9 +2,7 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import React, { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import GrayTooltip from '../common/CommonTooltip';
-import { setVisibleExplorerRef } from '../panels/explorer/Explorer';
 import { setVisibleSettingsRef } from '../panels/settings/Settings';
-import { visibleExplorerRef } from './OpenExplorer';
 
 export let visibleSettingsRef: React.MutableRefObject<any> | null = null;
 
@@ -21,14 +19,7 @@ export default function OpenSettings() {
       return;
     }
 
-    if (visibleExplorerRef.current) {
-      setVisibleExplorerRef.current(false);
-      setVisibleSettingsRef.current(true);
-    } else if (visibleSettingsRef.current) {
-      setVisibleSettingsRef.current(false);
-    } else {
-      setVisibleSettingsRef.current(true);
-    }
+    setVisibleSettingsRef.current(visible);
   }, [visible]);
 
   return (

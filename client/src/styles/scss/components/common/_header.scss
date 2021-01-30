@@ -1,7 +1,7 @@
 .header {
   @include theme-transition;
 
-  padding: 1rem 0;
+  padding: 0.5rem 0;
 
   border-bottom: 2px solid $color-primary-gamma;
   background-color: $color-primary-beta;

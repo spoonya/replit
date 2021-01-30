@@ -3,15 +3,18 @@ import React, { useRef } from 'react';
 import { OPTIONS } from '~/app/constants/options.constant';
 import { darkTheme, lightTheme } from '~/app/constants/theme.constant';
 import { getStorage } from '~/app/helpers/options.helper';
+import { infoPosition } from '../info/LineColumn';
 
 export let monacoRef: React.MutableRefObject<any> | null = null;
 
 interface Props {
   language: string;
+  value: string;
 }
 
 export default function CodeEditor(props: Props) {
-  const { language } = props;
+  const { language, value } = props;
+
   monacoRef = useRef(null);
 
   function handleEditorWillMount(monaco: Monaco) {
@@ -23,8 +26,7 @@ export default function CodeEditor(props: Props) {
         'editor.background': `${darkTheme.beta}`,
         'editor.lineHighlightBackground': `${darkTheme.editorLine}`,
         'dropdown.background': `${darkTheme.gamma}`,
-        'editorWidget.background': `${darkTheme.gamma}`,
-        'editorHoverWidget.background': `${'red'}`
+        'editorWidget.background': `${darkTheme.gamma}`
       }
     });
 
@@ -45,14 +47,23 @@ export default function CodeEditor(props: Props) {
 
   function handleEditorDidMount(editor: any, monaco: Monaco) {
     monacoRef.current = editor;
+
+    editor.onDidChangeCursorPosition(() => {
+      const cursorCoords = editor.getPosition();
+      infoPosition.line.current.innerText = cursorCoords.lineNumber;
+      infoPosition.col.current.innerText = cursorCoords.column;
+    });
   }
 
   return (
     <div className="editor">
+      <div className="editor__header">
+        <h3 className="editor__title">{language}</h3>
+      </div>
       <Editor
         className="editor__content"
         language={language}
-        value={`function hello() {alert('Hello world!');}`}
+        value={value}
         theme={
           getStorage(OPTIONS.themes.storageName) === OPTIONS.themes.light
             ? OPTIONS.themes.lightTheme

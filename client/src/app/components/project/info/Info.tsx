@@ -1,5 +1,5 @@
-import GroupIcon from '@material-ui/icons/Group';
 import React from 'react';
+import LineColumn from './LineColumn';
 
 export default function Info() {
   return (
@@ -8,13 +8,7 @@ export default function Info() {
         <div className="info__inner">
           <div className="info__left"></div>
           <div className="info__right">
-            <p className="info__item">
-              Ln <span>1</span>, Col <span>1</span>
-            </p>
-            <p className="info__item">
-              <GroupIcon className="info__icon" style={{ fontSize: 25 }} />
-              <span>1</span>
-            </p>
+            <LineColumn />
           </div>
         </div>
       </div>

@@ -7,7 +7,9 @@ import i18n from './app/localization/i18n';
 
 ReactDOM.render(
   <I18nextProvider i18n={i18n}>
-    <App />
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
   </I18nextProvider>,
   document.getElementById('root')
 );
