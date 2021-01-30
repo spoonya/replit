@@ -6,7 +6,6 @@ import Select from '@material-ui/core/Select';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { OPTIONS } from '~/app/constants/options.constant';
 
 interface ProjectLangsListProps {
   changeHandler: Function;
@@ -56,7 +55,7 @@ export default function ProjectLangsList({ changeHandler }: ProjectLangsListProp
       };
 
       try {
-        const url = `${OPTIONS.settings.backend.host}/langs`;
+        const url = `/langs`;
         const res = await fetch(url, fetchOptions);
         setLoaded(true);
 

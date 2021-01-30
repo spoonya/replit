@@ -10,7 +10,6 @@ import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { OPTIONS } from '~/app/constants/options.constant';
 import ProjectLangsList from './ProjectLangsList';
 
 const styles = (theme: Theme) =>
@@ -99,7 +98,7 @@ export default function GetStarted() {
 
   const handleStart = () => {
     async function fetchProjectLink() {
-      const url = `${OPTIONS.settings.backend.host}/project/create`;
+      const url = `/project/create`;
       const payload = JSON.stringify({
         title,
         lang
