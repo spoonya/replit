@@ -1,13 +1,19 @@
 .pane-input {
+  position: relative;
+
   display: flex;
   flex-direction: row;
-  flex: 3 0;
 
-  height: 100%;
   width: 100%;
+  height: 100%;
 }
 
 .pane-output {
-  display: flex;
-  flex: 2 0;
+  width: 100%;
+  height: 100%;
+
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
 }

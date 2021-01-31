@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { SplitPane } from 'react-multi-split-pane';
 // import Console from './console/Console';
 import CodeEditor from './editor/CodeEditor';
 import Header from './header/Header';
@@ -33,19 +34,21 @@ export default function Project() {
         <Sidebar />
         <Panels />
         <div className="content__inner">
-          <div className="pane-input">
-            <CodeEditor language="html" value={html} onChanged={setHtml} />
-            <CodeEditor language="css" value={css} onChanged={setCss} />
-            <CodeEditor language="javascript" value={js} onChanged={setJs} />
-          </div>
-          <div className="pane-output">
-            <iframe srcDoc={srcDoc} title="output" sandbox="allow-scripts" frameBorder="0" width="100%" height="100%" />
-          </div>
+          <SplitPane split="horizontal">
+            <div className="pane-input">
+              <SplitPane split="vertical">
+                <CodeEditor language="html" value={html} onChanged={setHtml} displayingName="html" />
+                <CodeEditor language="css" value={css} onChanged={setCss} displayingName="css" />
+                <CodeEditor language="javascript" value={js} onChanged={setJs} displayingName="js" />
+              </SplitPane>
+            </div>
+            <div className="pane-output">
+              <iframe srcDoc={srcDoc} title="output" sandbox="allow-scripts allow-modals" frameBorder="0" />
+            </div>
+          </SplitPane>
         </div>
 
-        {/* <ResizePanel direction="w" style={{ width: '35%' }}>
-          <Console />
-        </ResizePanel> */}
+        {/* <Console /> */}
       </div>
       <Info />
     </>

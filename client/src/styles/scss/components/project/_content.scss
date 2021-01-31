@@ -6,6 +6,8 @@
   height: calc(100vh - 7.8rem);
 
   &__inner {
+    position: relative;
+
     display: flex;
     flex-direction: column;
 

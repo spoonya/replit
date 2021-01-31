@@ -1,20 +1,22 @@
 import Editor, { Monaco } from '@monaco-editor/react';
-import React, { Dispatch, SetStateAction, useRef } from 'react';
+import { emmetCSS, emmetHTML } from 'emmet-monaco-es';
+import React, { Dispatch, MutableRefObject, SetStateAction, useRef } from 'react';
 import { OPTIONS } from '~/app/constants/options.constant';
 import { darkTheme, lightTheme } from '~/app/constants/theme.constant';
 import { getStorage } from '~/app/helpers/options.helper';
 import { infoPosition } from '../info/LineColumn';
 
-export let editorRef: React.MutableRefObject<any> | null = null;
+export let editorRef: MutableRefObject<any> | null = null;
 
 interface CodeEditorProps {
   language: string;
   value: string;
   onChanged: Dispatch<SetStateAction<string>>;
+  displayingName: string;
 }
 
 export default function CodeEditor(props: CodeEditorProps) {
-  const { language, value, onChanged } = props;
+  const { language, value, onChanged, displayingName } = props;
 
   editorRef = useRef(null);
 
@@ -49,6 +51,13 @@ export default function CodeEditor(props: CodeEditorProps) {
   const handleEditorDidMount = (editor: any, monaco: Monaco) => {
     editorRef.current = editor;
 
+    const dispose = () => {
+      emmetHTML(monaco);
+      emmetCSS(monaco);
+    };
+
+    dispose();
+
     editor.onDidChangeCursorPosition(() => {
       const cursorCoords = editor.getPosition();
       infoPosition.line.current.innerText = cursorCoords.lineNumber;
@@ -63,7 +72,7 @@ export default function CodeEditor(props: CodeEditorProps) {
   return (
     <div className="editor">
       <div className="editor__header">
-        <h3 className="editor__title">{language}</h3>
+        <h3 className="editor__title">{displayingName}</h3>
       </div>
       <Editor
         className="editor__content"
@@ -81,8 +90,10 @@ export default function CodeEditor(props: CodeEditorProps) {
           },
           tabSize: +getStorage(OPTIONS.settings.indentSize.storageName) || OPTIONS.settings.indentSize.defaultValue,
           fontSize: +getStorage(OPTIONS.settings.fontSize.storageName) || OPTIONS.settings.fontSize.defaultValue,
-          wordWrap: 'on',
-          wordWrapColumn: 80
+          wordWrap: 'bounded',
+          wordWrapColumn: 80,
+          formatOnPaste: true,
+          formatOnType: true
         }}
         beforeMount={handleEditorWillMount}
         onMount={handleEditorDidMount}

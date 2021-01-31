@@ -148,4 +148,13 @@ export const ThemifiedStyles = createGlobalStyle<Props>`
     }
   }
 
+  .Resizer {
+  }
+
+  .Resizer.horizontal {
+
+  }
+
+
+
 `;
