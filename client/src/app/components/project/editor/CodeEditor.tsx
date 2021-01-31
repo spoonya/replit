@@ -1,20 +1,24 @@
 import Editor, { Monaco } from '@monaco-editor/react';
-import React, { useRef } from 'react';
+import React, { Dispatch, SetStateAction, useRef } from 'react';
 import { OPTIONS } from '~/app/constants/options.constant';
 import { darkTheme, lightTheme } from '~/app/constants/theme.constant';
 import { getStorage } from '~/app/helpers/options.helper';
+import { infoPosition } from '../info/LineColumn';
 
-export let monacoRef: React.MutableRefObject<any> | null = null;
+export let editorRef: React.MutableRefObject<any> | null = null;
 
-interface Props {
+interface CodeEditorProps {
   language: string;
+  value: string;
+  onChanged: Dispatch<SetStateAction<string>>;
 }
 
-export default function CodeEditor(props: Props) {
-  const { language } = props;
-  monacoRef = useRef(null);
+export default function CodeEditor(props: CodeEditorProps) {
+  const { language, value, onChanged } = props;
 
-  function handleEditorWillMount(monaco: Monaco) {
+  editorRef = useRef(null);
+
+  const handleEditorWillMount = (monaco: Monaco) => {
     monaco.editor.defineTheme(OPTIONS.themes.darkTheme, {
       base: 'vs-dark',
       inherit: true,
@@ -23,8 +27,7 @@ export default function CodeEditor(props: Props) {
         'editor.background': `${darkTheme.beta}`,
         'editor.lineHighlightBackground': `${darkTheme.editorLine}`,
         'dropdown.background': `${darkTheme.gamma}`,
-        'editorWidget.background': `${darkTheme.gamma}`,
-        'editorHoverWidget.background': `${'red'}`
+        'editorWidget.background': `${darkTheme.gamma}`
       }
     });
 
@@ -41,18 +44,32 @@ export default function CodeEditor(props: Props) {
         'editorWidget.background': `${lightTheme.gamma}`
       }
     });
-  }
+  };
 
-  function handleEditorDidMount(editor: any, monaco: Monaco) {
-    monacoRef.current = editor;
-  }
+  const handleEditorDidMount = (editor: any, monaco: Monaco) => {
+    editorRef.current = editor;
+
+    editor.onDidChangeCursorPosition(() => {
+      const cursorCoords = editor.getPosition();
+      infoPosition.line.current.innerText = cursorCoords.lineNumber;
+      infoPosition.col.current.innerText = cursorCoords.column;
+    });
+  };
+
+  const handleChange = (value: string): any => {
+    onChanged(value);
+  };
 
   return (
     <div className="editor">
+      <div className="editor__header">
+        <h3 className="editor__title">{language}</h3>
+      </div>
       <Editor
         className="editor__content"
         language={language}
-        value={`function hello() {alert('Hello world!');}`}
+        value={value}
+        onChange={handleChange}
         theme={
           getStorage(OPTIONS.themes.storageName) === OPTIONS.themes.light
             ? OPTIONS.themes.lightTheme

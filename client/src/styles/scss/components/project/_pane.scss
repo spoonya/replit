@@ -1,0 +1,13 @@
+.pane-input {
+  display: flex;
+  flex-direction: row;
+  flex: 3 0;
+
+  height: 100%;
+  width: 100%;
+}
+
+.pane-output {
+  display: flex;
+  flex: 2 0;
+}

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { visibleSettingsRef } from '../../sidebar/OpenSettings';
 import FontSize from './fontSize/FontSize';
@@ -11,11 +11,8 @@ export let setVisibleSettingsRef: React.MutableRefObject<any> | null = null;
 export default function Explorer() {
   const { t } = useTranslation();
   const [visible, setVisible] = useState(visibleSettingsRef.current);
-  setVisibleSettingsRef = useRef(setVisible);
 
-  useEffect(() => {
-    visibleSettingsRef.current = visible;
-  }, [visible]);
+  setVisibleSettingsRef = useRef(setVisible);
 
   return (
     <div className="settings" style={{ display: visible ? 'flex' : 'none' }}>

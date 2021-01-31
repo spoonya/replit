@@ -10,7 +10,6 @@ export default function Header() {
             <Logo withHomeLink={true} />
             <div className="header__info">
               <h3 className="header__title">Project Name</h3>
-              <h4 className="header__subtitle">YoptaScript 4.1.3</h4>
             </div>
           </div>
           <div className="header__right"></div>

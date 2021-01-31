@@ -23,20 +23,29 @@ export const ThemifiedStyles = createGlobalStyle<Props>`
     }
   }
 
-  .content .ResizePanel-module_ResizeHandleHorizontal__PkS9u {
-    border: 2px solid ${({ theme }) => theme.beta};
-    background: ${({ theme }) => theme.editorLine};
+  .content {
+    .ResizePanel-module_ResizeHandleHorizontal__PkS9u {
+      border: 2px solid ${({ theme }) => theme.beta};
+      background: ${({ theme }) => theme.editorLine};
 
-    span {
-      color: ${({ theme }) => theme.alphaDarken};
-      text-shadow: 1px 0 1px ${({ theme }) => theme.alpha};
+      span {
+        color: ${({ theme }) => theme.alphaDarken};
+        text-shadow: 1px 0 1px ${({ theme }) => theme.alpha};
+      }
     }
+  }
+
+  .pane-output {
+    border-top: 1px solid ${({ theme }) => theme.divider};
+    border-left: 1px solid ${({ theme }) => theme.divider};
+
+    background-color: ${({ theme }) => theme.beta};
   }
 
   .sidebar {
     background-color: ${({ theme }) => theme.beta};
 
-    border-right: 1px solid ${({ theme }) => theme.divider};
+    /* border-right: 1px solid ${({ theme }) => theme.divider}; */
 
     &__btn {
       color: ${({ theme }) => theme.alphaDarken};
@@ -66,12 +75,21 @@ export const ThemifiedStyles = createGlobalStyle<Props>`
     background-color: ${({ theme }) => theme.beta};
 
     color:  ${({ theme }) => theme.alpha};
+
+    border-left: 1px solid ${({ theme }) => theme.divider};
+
+    &__title {
+      color:  ${({ theme }) => theme.alphaDarken};
+    }
+
   }
 
   .explorer, .settings {
     background-color: ${({ theme }) => theme.gamma};
 
-    border-right: 1px solid ${({ theme }) => theme.divider};
+    /* border-right: 1px solid ${({ theme }) => theme.divider}; */
+    border-left: 1px solid ${({ theme }) => theme.divider};
+
 
     &__header {
       border-bottom: 1px solid ${({ theme }) => theme.divider};

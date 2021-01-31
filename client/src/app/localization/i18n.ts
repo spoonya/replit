@@ -22,9 +22,9 @@ i18n.use(LanguageDetector).init({
         slogan: {
           code: 'Code',
           create: 'Create',
-          collaborate: 'Collaborate'
+          collaborate: 'Share'
         },
-        descrip: 'Online Realtime Collaborative Editor and Compiler',
+        descrip: 'HTML, CSS, JS Online Code Editor',
         startDialog: {
           start: 'Start coding',
           getStarted: 'Get Started',
@@ -86,9 +86,9 @@ i18n.use(LanguageDetector).init({
         slogan: {
           code: 'Программируйте',
           create: 'Создавайте',
-          collaborate: 'Объединяйтесь'
+          collaborate: 'Делитесь'
         },
-        descrip: 'Онлайн-редактор и компилятор для совместной работы в реальном времени',
+        descrip: 'Онлайн-редактор для HTML, CSS, JS',
         startDialog: {
           start: 'Начать работу',
           getStarted: 'Начать',
@@ -150,9 +150,9 @@ i18n.use(LanguageDetector).init({
         slogan: {
           code: 'Програмуйте',
           create: 'Створюйте',
-          collaborate: `Об'єднуйтеся`
+          collaborate: `Ділитись`
         },
-        descrip: 'Онлайн-редактор і компілятор для спільної роботи в реальному часі',
+        descrip: 'Онлайн-редактор для HTML, CSS, JS',
         startDialog: {
           start: 'Почати роботу',
           getStarted: 'Почати',

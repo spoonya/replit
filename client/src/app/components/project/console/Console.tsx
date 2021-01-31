@@ -44,7 +44,6 @@ export default function Console() {
         className="console"
         welcomeMessage={'Welcome to the club, buddy! This is default terminal.'}
         commands={styles.commands}
-        autoFocus
       />
     </div>
   );
