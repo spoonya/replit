@@ -1,11 +1,11 @@
 .editor {
-  // @include theme-transition;
-
   display: flex;
-  flex-direction: column;
   flex: 1 1;
+  flex-direction: column;
 
-  max-width: 100%;
+  width: 100%;
+  min-width: 0;
+  max-height: 100%;
 
   &__content {
     width: 100%;
@@ -13,16 +13,10 @@
   }
 
   &__header {
-    // @include theme-transition;
-
     padding: 5px 10px;
   }
 
   &__title {
     text-transform: uppercase;
-  }
-
-  .invisible.scrollbar.vertical.fade {
-    // z-index: 11;
   }
 }

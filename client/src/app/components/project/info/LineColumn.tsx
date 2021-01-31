@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { RefObject } from 'react';
 
 interface Position {
-  readonly line: React.RefObject<HTMLSpanElement>;
-  readonly col: React.RefObject<HTMLSpanElement>;
+  readonly line: RefObject<HTMLSpanElement>;
+  readonly col: RefObject<HTMLSpanElement>;
 }
 
 export const infoPosition: Position = {
