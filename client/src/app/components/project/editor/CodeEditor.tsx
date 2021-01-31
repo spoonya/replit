@@ -1,11 +1,12 @@
 import Editor, { Monaco } from '@monaco-editor/react';
-import React, { Dispatch, SetStateAction, useRef } from 'react';
+import { emmetCSS, emmetHTML } from 'emmet-monaco-es';
+import React, { Dispatch, MutableRefObject, SetStateAction, useRef } from 'react';
 import { OPTIONS } from '~/app/constants/options.constant';
 import { darkTheme, lightTheme } from '~/app/constants/theme.constant';
 import { getStorage } from '~/app/helpers/options.helper';
 import { infoPosition } from '../info/LineColumn';
 
-export let editorRef: React.MutableRefObject<any> | null = null;
+export let editorRef: MutableRefObject<any> | null = null;
 
 interface CodeEditorProps {
   language: string;
@@ -48,6 +49,9 @@ export default function CodeEditor(props: CodeEditorProps) {
 
   const handleEditorDidMount = (editor: any, monaco: Monaco) => {
     editorRef.current = editor;
+
+    emmetHTML(monaco);
+    emmetCSS(monaco);
 
     editor.onDidChangeCursorPosition(() => {
       const cursorCoords = editor.getPosition();
