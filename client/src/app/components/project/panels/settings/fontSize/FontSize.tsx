@@ -7,7 +7,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { OPTIONS } from '~/app/constants/options.constant';
 import { getStorage, setStorage } from '~/app/helpers/options.helper';
-import { monacoRef } from '../../../editor/CodeEditor';
+import { editorRef } from '../../../editor/CodeEditor';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -32,7 +32,7 @@ export default function FontSize() {
 
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setFontSize(event.target.value as number);
-    monacoRef.current.updateOptions({ fontSize: `${event.target.value}` });
+    editorRef.current.updateOptions({ fontSize: `${event.target.value}` });
     setStorage(OPTIONS.settings.fontSize.storageName, event.target.value.toString());
   };
 
