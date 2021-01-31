@@ -6,7 +6,8 @@ import { darkTheme, lightTheme } from '~/app/constants/theme.constant';
 import { getStorage } from '~/app/helpers/options.helper';
 import { infoPosition } from '../info/LineColumn';
 
-export let editorRef: MutableRefObject<any> | null = null;
+let editorRef: MutableRefObject<any> | null = null;
+export const editorRefArray: Array<MutableRefObject<any>> = [];
 
 interface CodeEditorProps {
   language: string;
@@ -50,6 +51,8 @@ export default function CodeEditor(props: CodeEditorProps) {
 
   const handleEditorDidMount = (editor: any, monaco: Monaco) => {
     editorRef.current = editor;
+    editorRefArray.push(editorRef.current);
+    console.log(editorRefArray);
 
     const dispose = () => {
       emmetHTML(monaco);

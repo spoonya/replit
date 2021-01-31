@@ -7,7 +7,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { OPTIONS } from '~/app/constants/options.constant';
 import { getStorage, setStorage } from '~/app/helpers/options.helper';
-import { editorRef } from '../../../editor/CodeEditor';
+import { editorRefArray } from '../../../editor/CodeEditor';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -33,7 +33,7 @@ export default function IndentSize() {
 
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setIndentSize(event.target.value as number);
-    editorRef.current.updateOptions({ tabSize: `${event.target.value}` });
+    editorRefArray.forEach((item: any) => item.updateOptions({ tabSize: `${event.target.value}` }));
     setStorage(OPTIONS.settings.indentSize.storageName, event.target.value.toString());
   };
 
