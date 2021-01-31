@@ -7,7 +7,7 @@ type Props = {
 
 export const ThemifiedStyles = createGlobalStyle<Props>`
   .header {
-    background-color: ${({ theme }) => theme.beta};
+    background-color: ${({ theme }) => theme.gamma};
     color: ${({ theme }) => theme.alpha};
 
     &--project {
@@ -36,16 +36,13 @@ export const ThemifiedStyles = createGlobalStyle<Props>`
   }
 
   .pane-output {
-    border-top: 1px solid ${({ theme }) => theme.divider};
-    border-left: 1px solid ${({ theme }) => theme.divider};
-
     background-color: ${({ theme }) => theme.beta};
   }
 
   .sidebar {
-    background-color: ${({ theme }) => theme.beta};
+    background-color: ${({ theme }) => theme.gamma};
 
-    /* border-right: 1px solid ${({ theme }) => theme.divider}; */
+    border-right: 1px solid ${({ theme }) => theme.divider};
 
     &__btn {
       color: ${({ theme }) => theme.alphaDarken};
@@ -76,10 +73,8 @@ export const ThemifiedStyles = createGlobalStyle<Props>`
 
     color:  ${({ theme }) => theme.alpha};
 
-    border-left: 1px solid ${({ theme }) => theme.divider};
-
     &__title {
-      color:  ${({ theme }) => theme.alphaDarken};
+      color:  ${({ theme }) => theme.alpha};
     }
 
   }
@@ -87,9 +82,7 @@ export const ThemifiedStyles = createGlobalStyle<Props>`
   .explorer, .settings {
     background-color: ${({ theme }) => theme.gamma};
 
-    /* border-right: 1px solid ${({ theme }) => theme.divider}; */
-    border-left: 1px solid ${({ theme }) => theme.divider};
-
+    border-right: 1px solid ${({ theme }) => theme.divider};
 
     &__header {
       border-bottom: 1px solid ${({ theme }) => theme.divider};
@@ -149,12 +142,7 @@ export const ThemifiedStyles = createGlobalStyle<Props>`
   }
 
   .Resizer {
+    background-color: ${({ theme }) => theme.divider};
   }
-
-  .Resizer.horizontal {
-
-  }
-
-
 
 `;

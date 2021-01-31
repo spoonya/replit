@@ -34,9 +34,9 @@ export default function Project() {
         <Sidebar />
         <Panels />
         <div className="content__inner">
-          <SplitPane split="horizontal">
+          <SplitPane split="horizontal" minSize={33}>
             <div className="pane-input">
-              <SplitPane split="vertical">
+              <SplitPane split="vertical" minSize={60}>
                 <CodeEditor language="html" value={html} onChanged={setHtml} displayingName="html" />
                 <CodeEditor language="css" value={css} onChanged={setCss} displayingName="css" />
                 <CodeEditor language="javascript" value={js} onChanged={setJs} displayingName="js" />
