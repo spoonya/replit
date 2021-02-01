@@ -1,6 +1,6 @@
 .info {
   font-family: $font-secondary;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
 
   position: absolute;
   z-index: 10;
@@ -26,7 +26,8 @@
   &__item {
     display: flex;
     align-items: center;
-    padding: 4px 0;
+
+    padding: 3px 0;
 
     color: $color-primary-alpha;
 
@@ -35,7 +36,13 @@
     }
 
     button {
+      transition: background-color 0.1s linear;
+
       color: $color-primary-alpha;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
     }
 
     &:not(:last-child) {

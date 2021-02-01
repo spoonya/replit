@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { SplitPane } from 'react-multi-split-pane';
-// import Console from './console/Console';
+import Console from './console/Console';
 import CodeEditor from './editor/CodeEditor';
+import { Buttons } from './editor/test/buttons';
 import Header from './header/Header';
+import Iframe from './iframe/Iframe';
 import Info from './info/Info';
 import Panels from './panels/Panels';
 import Sidebar from './sidebar/Sidebar';
 
 export default function Project() {
-  const [html, setHtml] = useState('');
-  const [css, setCss] = useState('');
+  const [html, setHtml] = useState(Buttons.html);
+  const [css, setCss] = useState(Buttons.css);
   const [js, setJs] = useState('');
   const [srcDoc, setSrcDoc] = useState(``);
 
@@ -34,7 +36,7 @@ export default function Project() {
         <Sidebar />
         <Panels />
         <div className="content__inner">
-          <SplitPane split="horizontal" minSize={33}>
+          <SplitPane split="horizontal" defaultSizes={[65, 1, 34]} minSize={[30, 1, 31]}>
             <div className="pane-input">
               <SplitPane split="vertical" minSize={60}>
                 <CodeEditor language="html" value={html} onChanged={setHtml} displayingName="html" />
@@ -42,13 +44,10 @@ export default function Project() {
                 <CodeEditor language="javascript" value={js} onChanged={setJs} displayingName="js" />
               </SplitPane>
             </div>
-            <div className="pane-output">
-              <iframe srcDoc={srcDoc} title="output" sandbox="allow-scripts allow-modals" frameBorder="0" />
-            </div>
+            <Iframe srcDoc={srcDoc} />
+            <Console output={js} />
           </SplitPane>
         </div>
-
-        {/* <Console /> */}
       </div>
       <Info />
     </>

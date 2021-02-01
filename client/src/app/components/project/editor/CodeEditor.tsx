@@ -52,7 +52,6 @@ export default function CodeEditor(props: CodeEditorProps) {
   const handleEditorDidMount = (editor: any, monaco: Monaco) => {
     editorRef.current = editor;
     editorRefArray.push(editorRef.current);
-    console.log(editorRefArray);
 
     const dispose = () => {
       emmetHTML(monaco);
@@ -75,7 +74,7 @@ export default function CodeEditor(props: CodeEditorProps) {
   return (
     <div className="editor">
       <div className="editor__header">
-        <h3 className="editor__title">{displayingName}</h3>
+        <h4 className="editor__title">{displayingName}</h4>
       </div>
       <Editor
         className="editor__content"
