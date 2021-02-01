@@ -1,10 +1,7 @@
 .console-wrapper {
   @include theme-transition;
 
-  display: flex;
-  align-items: center;
-  flex: 1 0;
-  justify-content: center;
+  position: relative;
 
   width: 100%;
   min-width: 200px;
@@ -13,5 +10,30 @@
   .console {
     width: 100%;
     height: 100%;
+
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 4px 10px;
+    }
+
+    &__inner {
+      height: calc(100% - 3rem);
+      overflow-y: auto;
+    }
+
+    &__btn {
+      padding: 2px 5px;
+      border-radius: 2px;
+      font-size: 1.4rem;
+
+      transition: background-color 0.1s linear, color 0.1s linear;
+
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
   }
 }

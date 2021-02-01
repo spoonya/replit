@@ -50,20 +50,31 @@ export const ThemifiedStyles = createGlobalStyle<Props>`
   }
 
   .console-wrapper {
-    background-color: ${({ theme }) => theme.beta};
+    background-color: ${({ theme }) => theme.gamma};
+
+    color: ${({ theme }) => theme.alpha};
 
     .console {
-      background-color: ${({ theme }) => theme.beta};
-      border-left: 1px solid ${({ theme }) => theme.divider};
-
-      color: ${({ theme }) => theme.alpha};
-
       span {
         color: ${({ theme }) => theme.psi};
       }
 
       input {
         color: ${({ theme }) => theme.alphaDarken};
+      }
+
+      &__btn {
+        color:  ${({ theme }) => theme.alpha};
+        background-color: ${({ theme }) => theme.gamma};
+
+        &:hover {
+          background-color: ${({ theme }) => theme.alphaDarken};
+          color: ${({ theme }) => theme.beta};
+        }
+      }
+
+      &__header {
+        background-color: ${({ theme }) => theme.beta};
       }
     }
   }
