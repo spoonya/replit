@@ -1,0 +1,22 @@
+.editor {
+  display: flex;
+  flex: 1 1;
+  flex-direction: column;
+
+  width: 100%;
+  min-width: 0;
+  max-height: 100%;
+
+  &__content {
+    width: 100%;
+    max-height: 100%;
+  }
+
+  &__header {
+    padding: 5px 10px;
+  }
+
+  &__title {
+    text-transform: uppercase;
+  }
+}

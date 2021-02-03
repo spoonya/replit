@@ -1,0 +1,48 @@
+@mixin panel {
+  font-family: $font-secondary;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-width: 245px;
+  max-width: 245px;
+  height: 100%;
+}
+
+@mixin panel__header {
+  margin-bottom: 2rem;
+}
+
+@mixin panel__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 15px 10px;
+}
+
+@mixin panel__buttons {
+  display: flex;
+  align-items: center;
+}
+
+@mixin panel__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+@mixin panel__title {
+  font-size: 1.6rem;
+
+  text-transform: uppercase;
+}
+
+@mixin panel__content {
+  padding: 0 15px;
+}

@@ -1,0 +1,52 @@
+.info {
+  font-family: $font-secondary;
+  font-size: 1.3rem;
+
+  position: absolute;
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+
+  background-color: $color-primary-psi;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__left,
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    padding: 3px 0;
+
+    color: $color-primary-alpha;
+
+    span {
+      margin-left: 5px;
+    }
+
+    button {
+      transition: background-color 0.1s linear;
+
+      color: $color-primary-alpha;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    &:not(:last-child) {
+      margin-right: 3rem;
+    }
+  }
+}

@@ -1,0 +1,61 @@
+swagger: "2.0"
+info:
+  version: 0.0.1
+  title: Code.it API
+host: "localhost:8081"
+schemes:
+  - http
+paths:
+  "/setup":
+    get:
+      produces: application/json
+      description: Install initial data to DB
+      responses:
+        "200":
+          description: Installation status
+  "/langs":
+    post:
+      produces: application/json
+      description: Get current supported programming languages
+      responses:
+        "200":
+          description: List of supported programming languages
+  "/project/{id}":
+    parameters:
+      - in: path
+        name: id
+        required: true
+        type: string
+        description: Project ID
+    post:
+      summary: get specified project file tree
+      description: Returns project structure for given `id`
+      responses:
+        "200":
+          description: project tree as JSON array
+        "404":
+          description: '"Not found" error'
+  /project/create:
+    post:
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: project
+          description: New project settings
+          schema:
+            $ref: "#/components/schemas/NewProject"
+      responses:
+        "200":
+          description: New project link in JSON format
+components:
+  schemas:
+    NewProject:
+      type: object
+      properties:
+        title:
+          description: Project name
+          type: string
+        lang:
+          description: Project language
+          type: string
