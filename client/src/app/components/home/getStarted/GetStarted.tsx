@@ -10,7 +10,8 @@ import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import ProjectLangsList from './ProjectLangsList';
+import { PROJECT } from '~/app/constants/project.constant';
+import { setStorage } from '~/app/helpers/options.helper';
 
 const styles = (theme: Theme) =>
   createStyles({
@@ -78,8 +79,7 @@ const DialogActions = withStyles((theme: Theme) => ({
 export default function GetStarted() {
   const { t } = useTranslation();
   const [open, setOpen] = React.useState(false);
-  const [lang, setLang] = React.useState('');
-  const [title, setTitle] = React.useState('Untitled');
+  const [title, setTitle] = React.useState(PROJECT.title.defaultVal);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -88,36 +88,14 @@ export default function GetStarted() {
     setOpen(false);
   };
 
-  const handleLangChange = (lang: string) => {
-    setLang(lang);
-  };
-
   const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
+    PROJECT.title.value = e.target.value;
   };
 
   const handleStart = () => {
-    async function fetchProjectLink() {
-      const url = `/project/create`;
-      const payload = JSON.stringify({
-        title,
-        lang
-      });
-
-      const fetchOptions = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: payload
-      };
-
-      const res = await fetch(url, fetchOptions);
-      const link = (await res.json()).link;
-      window.location.href = link;
-    }
-
-    fetchProjectLink();
+    window.location.href = '/project';
+    setStorage(PROJECT.title.storage, PROJECT.title.value);
   };
 
   const classes = useStyles();
@@ -139,9 +117,8 @@ export default function GetStarted() {
             className={textFieldClasses.root}
             label={t('startDialog.title')}
             value={title}
-            onChange={handleTitleChange}
+            onInput={handleTitleChange}
           />
-          <ProjectLangsList changeHandler={handleLangChange} />
         </DialogContent>
         <DialogActions>
           <Button className={classes.createButton} autoFocus onClick={handleStart} color="primary">

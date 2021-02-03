@@ -27,14 +27,13 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function IndentSize() {
   const { t } = useTranslation();
   const classes = useStyles();
-  const localIndentSize =
-    +getStorage(OPTIONS.settings.indentSize.storageName) || OPTIONS.settings.indentSize.defaultValue;
+  const localIndentSize = +getStorage(OPTIONS.settings.indentSize.storage) || OPTIONS.settings.indentSize.defaultValue;
   const [indentSize, setIndentSize] = React.useState(localIndentSize);
 
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setIndentSize(event.target.value as number);
     editorRefArray.forEach((item: any) => item.updateOptions({ tabSize: `${event.target.value}` }));
-    setStorage(OPTIONS.settings.indentSize.storageName, event.target.value.toString());
+    setStorage(OPTIONS.settings.indentSize.storage, event.target.value.toString());
   };
 
   return (

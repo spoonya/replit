@@ -36,7 +36,7 @@ export default function Language() {
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     const { value } = event.target;
     changeLanguage(value.toString());
-    setStorage(OPTIONS.settings.language.storageName, value.toString());
+    setStorage(OPTIONS.settings.language.storage, value.toString());
   };
 
   return (

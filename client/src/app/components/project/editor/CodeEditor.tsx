@@ -82,7 +82,7 @@ export default function CodeEditor(props: CodeEditorProps) {
         value={value}
         onChange={handleChange}
         theme={
-          getStorage(OPTIONS.themes.storageName) === OPTIONS.themes.light
+          getStorage(OPTIONS.themes.storage) === OPTIONS.themes.light
             ? OPTIONS.themes.lightTheme
             : OPTIONS.themes.darkTheme
         }
@@ -90,8 +90,8 @@ export default function CodeEditor(props: CodeEditorProps) {
           minimap: {
             enabled: false
           },
-          tabSize: +getStorage(OPTIONS.settings.indentSize.storageName) || OPTIONS.settings.indentSize.defaultValue,
-          fontSize: +getStorage(OPTIONS.settings.fontSize.storageName) || OPTIONS.settings.fontSize.defaultValue,
+          tabSize: +getStorage(OPTIONS.settings.indentSize.storage) || OPTIONS.settings.indentSize.defaultValue,
+          fontSize: +getStorage(OPTIONS.settings.fontSize.storage) || OPTIONS.settings.fontSize.defaultValue,
           wordWrap: 'bounded',
           wordWrapColumn: 80,
           formatOnPaste: true,

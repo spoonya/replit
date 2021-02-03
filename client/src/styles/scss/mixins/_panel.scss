@@ -12,8 +12,6 @@
 
 @mixin panel__header {
   margin-bottom: 2rem;
-
-  transition: border-color 0.1s linear;
 }
 
 @mixin panel__inner {

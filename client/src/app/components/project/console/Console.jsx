@@ -5,33 +5,33 @@ export default function Console({ output }) {
   const [logs, setLogs] = useState([]);
 
   const onInput = () => {
-    setLogs(logs);
+    // setLogs(logs);
+    // console.log(logs[logs.length - 1]);
   };
 
   useEffect(() => {
     onInput();
-    console.log(logs);
   }, [output]);
 
   useEffect(() => {
-    Hook(
-      window.console,
-      (log) => {
-        return setLogs((currLogs) => [...currLogs, log]);
-      },
-      false
-    );
+    Hook(window.console, (log) => setLogs((currLogs) => [...currLogs, log]), false);
 
     return () => Unhook(window.console);
   }, []);
+
+  const clear = () => {
+    // setLogs();
+    setLogs(logs);
+  };
 
   return (
     <div className="console-wrapper">
       <div className="console__header">
         <h4 className="console__title">Console</h4>
         <div className="console__btns">
-          <button className="console__btn">Clear</button>
-          {/* <button className="console__btn">Close</button> */}
+          <button className="console__btn" onClick={clear}>
+            Clear
+          </button>
         </div>
       </div>
       <div className="console__inner">

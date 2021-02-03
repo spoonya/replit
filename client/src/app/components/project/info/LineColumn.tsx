@@ -1,4 +1,4 @@
-import React, { RefObject } from 'react';
+import React, { createRef, RefObject } from 'react';
 
 interface Position {
   readonly line: RefObject<HTMLSpanElement>;
@@ -6,8 +6,8 @@ interface Position {
 }
 
 export const infoPosition: Position = {
-  line: React.createRef(),
-  col: React.createRef()
+  line: createRef(),
+  col: createRef()
 };
 
 export default function LineColumn() {

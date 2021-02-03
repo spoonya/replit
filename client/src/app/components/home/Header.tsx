@@ -7,7 +7,6 @@ export default function Header({ withHomeLink = false }) {
       <div className="container">
         <div className="header__inner">
           <Logo withHomeLink={withHomeLink} />
-          <nav className="header__nav"></nav>
         </div>
       </div>
     </header>

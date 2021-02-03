@@ -1,10 +1,9 @@
 import i18n from 'i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
 import { OPTIONS } from '../constants/options.constant';
 import { getStorage } from '../helpers/options.helper';
 
-i18n.use(LanguageDetector).init({
-  lng: getStorage(OPTIONS.settings.language.storageName),
+i18n.init({
+  lng: getStorage(OPTIONS.settings.language.storage) || 'en-EN',
   fallbackLng: 'en',
   ns: ['translations'],
   defaultNS: 'translations',

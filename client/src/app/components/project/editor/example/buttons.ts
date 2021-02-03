@@ -1,4 +1,4 @@
-export const Buttons = {
+export const BUTTONS = {
   html: `<button class="cybr-btn">
     Cyber<span aria-hidden>_</span>
     <span aria-hidden class="cybr-btn__glitch">Cyber_</span>
@@ -26,7 +26,6 @@ body {
   justify-content: center;
   min-height: 100vh;
   font-family: 'Cyber', sans-serif;
-  background: linear-gradient(90deg, #f5ed00 70%, #e6de00 70%), #fff700;
 }
 
 body .cybr-btn + .cybr-btn {
@@ -203,5 +202,6 @@ body .cybr-btn + .cybr-btn {
 
 .cybr-btn:nth-of-type(2) {
   --primary-hue: 260;
-}`
+}`,
+  js: `document.querySelector('body').style.backgroundColor = '#fff700'`
 };

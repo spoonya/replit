@@ -27,13 +27,13 @@ const useStyles = makeStyles((theme: Theme) =>
 export default function FontSize() {
   const { t } = useTranslation();
   const classes = useStyles();
-  const localFontSize = +getStorage(OPTIONS.settings.fontSize.storageName) || OPTIONS.settings.fontSize.defaultValue;
+  const localFontSize = +getStorage(OPTIONS.settings.fontSize.storage) || OPTIONS.settings.fontSize.defaultValue;
   const [fontSize, setFontSize] = React.useState(localFontSize);
 
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setFontSize(event.target.value as number);
     editorRefArray.forEach((item: any) => item.updateOptions({ fontSize: `${event.target.value}` }));
-    setStorage(OPTIONS.settings.fontSize.storageName, event.target.value.toString());
+    setStorage(OPTIONS.settings.fontSize.storage, event.target.value.toString());
   };
 
   return (

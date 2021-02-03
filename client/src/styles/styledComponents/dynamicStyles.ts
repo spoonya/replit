@@ -24,6 +24,8 @@ export const ThemifiedStyles = createGlobalStyle<Props>`
   }
 
   .content {
+    background-color: ${({ theme }) => theme.beta};
+
     .ResizePanel-module_ResizeHandleHorizontal__PkS9u {
       border: 2px solid ${({ theme }) => theme.beta};
       background: ${({ theme }) => theme.editorLine};
