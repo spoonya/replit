@@ -1,0 +1,69 @@
+.settings {
+  @include theme-transition;
+
+  @include panel;
+
+  &__header {
+    @include panel__header;
+  }
+
+  &__inner {
+    @include panel__inner;
+  }
+
+  &__title {
+    @include panel__title;
+  }
+
+  &__content {
+    @include panel__content;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__item-title {
+    font-size: 1.6rem;
+
+    margin-bottom: 1rem;
+  }
+
+  &__subitem {
+    &:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &__sublist {
+    padding-left: 0.3rem;
+  }
+
+  .MuiTypography-body1 {
+    font-size: 1.4rem;
+
+    user-select: none;
+  }
+
+  .MuiFormControlLabel-root {
+    margin-left: 0;
+  }
+
+  .MuiInputBase-root {
+    font-size: 1.4rem;
+  }
+
+  .MuiFormLabel-root {
+    font-size: 1.9rem;
+  }
+
+  .MuiInput-underline:after {
+    content: none;
+  }
+
+  .MuiSelect-select:focus {
+    background: none;
+  }
+}

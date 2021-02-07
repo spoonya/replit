@@ -1,0 +1,115 @@
+{
+  "name": "code.it",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "craco start",
+    "build": "craco build",
+    "build-serve": "serve-build",
+    "test": "craco test",
+    "lint": "npm run lint:scripts && npm run lint:styles && npm run lint:editor",
+    "lint:scripts": "eslint --fix . --ext .ts,.tsx src",
+    "lint:styles": "stylelint \"./src/**/*.(scss)\" --fix",
+    "lint:editor": "eclint fix",
+    "update": "create-react-app-updater"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "dependencies": {
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/icons": "^4.11.2",
+    "bootstrap": "^4.5.3",
+    "inversify-hooks": "^2.1.2",
+    "node-sass": "^4.14.1",
+    "normalize-scss": "^7.0.1",
+    "npm": "^6.14.11",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.4.3",
+    "react-dom": "^16.13.1",
+    "react-hookstore": "^1.4.4",
+    "react-router-dom": "^5.2.0",
+    "reflect-metadata": "^0.1.13",
+    "run": "^1.4.0",
+    "serve-build": "^0.1.0",
+    "svgo": "1.3.2"
+  },
+  "devDependencies": {
+    "@craco/craco": "^5.6.4",
+    "@monaco-editor/react": "^4.0.7",
+    "@types/chai": "^4.2.11",
+    "@types/event-emitter-es6": "^1.1.0",
+    "@types/jest": "26.0.3",
+    "@types/node": "14.0.14",
+    "@types/react": "^16.9.41",
+    "@types/react-bootstrap": "^1.0.1",
+    "@types/react-css-modules": "^4.6.2",
+    "@types/react-dom": "16.9.8",
+    "@types/react-router-dom": "^5.1.5",
+    "@types/styled-components": "^5.1.7",
+    "@typescript-eslint/eslint-plugin": "^3.10.1",
+    "@typescript-eslint/parser": "^3.10.1",
+    "babel-plugin-react-css-modules": "^5.2.6",
+    "console-feed": "^3.2.2",
+    "craco-sass-resources-loader": "^1.1.0",
+    "create-react-app-updater": "^0.10.3",
+    "eclint": "^2.8.1",
+    "emmet-monaco-es": "^4.4.2",
+    "eslint": "6.6.0",
+    "eslint-config-airbnb-typescript": "^6.3.2",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-react-app": "5.2.1",
+    "eslint-plugin-flowtype": "^5.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.3",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^4.2.5",
+    "i18next": "^19.8.4",
+    "i18next-browser-languagedetector": "^6.0.1",
+    "jest-transform-stub": "^2.0.0",
+    "monaco-editor": "^0.21.2",
+    "postcss-nested": "^4.2.1",
+    "postcss-scss": "^2.1.1",
+    "prettier": "^2.2.1",
+    "prettier-stylelint": "^0.4.2",
+    "react-i18next": "^11.8.5",
+    "react-localization": "^1.0.15",
+    "react-multi-split-pane": "^0.3.2",
+    "react-scripts": "3.4.1",
+    "start-server-and-test": "^1.11.0",
+    "styled-components": "^5.2.1",
+    "stylelint": "^13.6.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-prettier": "^1.1.2",
+    "stylelint-processor-html": "^1.0.0",
+    "stylelint-scss": "^3.18.0",
+    "terser-webpack-plugin": "^3.0.6",
+    "ts-jest": "^26.1.1",
+    "typescript": "3.9.6"
+  },
+  "eslintConfig": {
+    "extends": [
+      "./.eslintrc.js"
+    ]
+  },
+  "resolutions": {
+    "svgo": "1.3.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

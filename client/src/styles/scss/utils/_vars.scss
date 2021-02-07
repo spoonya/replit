@@ -1,0 +1,21 @@
+// Breakpoints
+$media-xl: 1199px;
+$media-lg: 991px;
+$media-md: 767px;
+$media-sm: 575px;
+$media-xs: 480px;
+// Colors
+$color-white: #fff;
+$color-shark-alpha: #282c34;
+$color-shark-beta: #21252b;
+$color-blue: #485fe0;
+$color-black: #000;
+$color-primary-alpha: $color-white;
+$color-primary-beta: $color-shark-alpha;
+$color-primary-gamma: $color-shark-beta;
+$color-primary-psi: $color-blue;
+$color-primary-omega: $color-black;
+$color-line: darken($color-primary-alpha, 73);
+// Fonts
+$font-primary: 'JetBrains Mono', monospace;
+$font-secondary: 'Roboto', sans-serif;

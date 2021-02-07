@@ -1,0 +1,65 @@
+.header {
+  @include theme-transition;
+
+  padding: 0.3rem 0;
+
+  border-bottom: 2px solid $color-primary-gamma;
+  background-color: $color-primary-beta;
+
+  &--project {
+    border-bottom: 1px solid $color-line;
+    font-size: 1.3rem;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    font-weight: 700;
+    color: $color-primary-alpha;
+    margin-right: 1.5rem;
+
+    text-transform: uppercase;
+
+    span {
+      color: $color-primary-psi;
+    }
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+
+  &__run {
+    @include btn-hover;
+
+    font-size: 2rem;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+    padding: 5px 10px 5px 5px;
+
+    transition: color 0.1s linear;
+
+    color: $color-primary-alpha;
+  }
+}
